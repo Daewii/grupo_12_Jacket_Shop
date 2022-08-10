@@ -21,3 +21,7 @@ Este E-commerce esta enfocado en la venta de todo tipos de chaquetas ya sea en c
 <li type="circle">Manuela Quiroz</li>
 <li type="circle">Cristian Salazar</li>
 </ul>
+
+## Trello
+
+https://trello.com/b/RSiChXnk/proyecto-integrador-e-commerce
