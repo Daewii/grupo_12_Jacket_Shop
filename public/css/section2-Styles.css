@@ -1,3 +1,16 @@
+#section-2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.titleSection{
+    justify-content: center;
+    text-align: center;
+    margin-top: 50px;
+}
+
 .card {
     margin-top: 25px;
     margin-bottom: 25px;
