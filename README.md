@@ -1,4 +1,4 @@
-# grupo_12_undefined
+# grupo_12_Jacket_Shop
 
 Este E-commerce esta enfocado en la venta de todo tipos de chaquetas ya sea en cuero, jeans, tela. Para todo aquella persona que se quiera ver bien bacano :)
 
