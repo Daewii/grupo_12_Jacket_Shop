@@ -1,0 +1,26 @@
+{
+  "name": "grupo_12_undefined",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Daewii/grupo_12_undefined.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Daewii/grupo_12_undefined/issues"
+  },
+  "homepage": "https://github.com/Daewii/grupo_12_undefined#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
