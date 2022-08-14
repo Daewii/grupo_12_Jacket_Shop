@@ -10,7 +10,7 @@
 }
 
 .wrapper{
-    position: fixed;
+    position: absolute;
     top: 55%;
     left: 25%;
     transform: translate(-50%, -50%);
