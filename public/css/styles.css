@@ -7,6 +7,7 @@
 
 body {
     font-family: 'Roboto';
+    font-size: 14px;
 }
 
 header {
@@ -129,6 +130,10 @@ header {
 
 .dropdown-cat-header:hover .dropdown-content {
     display: block;
+}
+
+.account {
+    display:none;
 }
 
 @media (min-width: 768px) {
