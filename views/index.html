@@ -13,9 +13,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Roboto&display=swap"
         rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+
     <title>Jacket Shop</title>
 </head>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/scripts.js"></script>
 <body>
     <header>
         <div class="navbar">
@@ -30,33 +32,40 @@
                     <div class="user-icon">
                         <i class="fas fa-user"></i>
                         <p>Ingresa</p>
-                        <div class="account">
-                            <div class="login-singin">
-                                <div class="login">Ingresa</div>
-                                <div class="singin"><a href="#"><span>Crear cuenta</span></a></div>
+                        <div class="hidden-login">
+                        <ul>
+                            <div class="account">
+                                <div class="login-singin">
+                                    <div class="login">Ingresa</div>
+                                    <div class="singin"><a href="#"><span>Crear cuenta</span></a></div>
+                                </div>
+                                <form class="form-login">
+                                    <div class="user-input">
+                                        <input class="user" name="user-login" type="email" placeholder="Email">
+                                    </div>
+                                    <div class="password-input">
+                                        <input class="password" name="user-login" type="password"
+                                            placeholder="Contraseña">
+                                    </div>
+                                    <div class="forgot-password">
+                                        <a href="#">Olvidaste tu contraseña?</a>
+                                    </div>
+                                    <div class="login-btn">
+                                        <button>Ingresar</button>
+                                    </div>
+                                </form>
+                                <div class="login-with-socials">
+                                    <div class="title-socials">Ingresa con:</div>
+                                    <div class="socials-btn">
+                                        <button class="social-btn-f"><i
+                                                class="fab fa-facebook-f"></i><span>Facebook</span></button>
+                                        <button class="social-btn-g"><i
+                                                class="fab fa-google"></i><span>Google</span></button>
+                                    </div>
+                                </div>
                             </div>
-                            <form class="form-login">
-                                <div class="user-input">
-                                    <input class="user" name="user-login" type="email" placeholder="Email">
-                                </div>
-                                <div class="password-input">
-                                    <input class="password" name="user-login" type="password" placeholder="Contraseña">
-                                </div>
-                                <div class="forgot-password">
-                                    <a href="#">Olvidaste tu contraseña?</a>
-                                </div>
-                                <div class="login-btn">
-                                    <button>Ingresar</button>
-                                </div>
-                            </form>
-                            <div class="login-with-socials">
-                                <div class="title-socials">Ingresa con:</div>
-                                <div class="socials-btn">
-                                    <button class="social-btn-f"><i class="fab fa-facebook-f"></i><span>Facebook</span></button>
-                                    <button class="social-btn-g"><i class="fab fa-google"></i><span>Google</span></button>
-                                </div>
-                            </div>
-                        </div>
+                        </ul>
+                    </div>
                     </div>
                     <div class="shopping-car-icon">
                         <i class="fas fa-shopping-cart"></i>

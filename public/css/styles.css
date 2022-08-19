@@ -58,6 +58,7 @@ header {
     font-size: 25px;
     padding: 5px;
     display: none;
+    cursor: pointer;
 }
 
 .mode-icon {
@@ -140,6 +141,15 @@ header {
     padding: 0;
     background-color: #222222;
     z-index: 140;
+
+}
+
+.hidden-login ul{
+    display: none;
+}
+
+.hidden-login ul.show {
+    display: block;
 }
 
 .form-login {
@@ -291,7 +301,7 @@ header {
     }
 
     .search-bar {
-        width: 65%;
+        width: 58%;
         left: 25%;
         top: 20%;
     }
