@@ -1,5 +1,5 @@
 jQuery('document').ready(function ($) {
-    var menuBtn = $('.user-icon');
+    var menuBtn = $('.login-user-div');
     var menu = $('.hidden-login ul');
 
     menuBtn.click(()=> {
