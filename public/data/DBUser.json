@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "firstName": "Mateo",
+        "lastName": "Duque",
+        "email": "mateomine007@gmail.com",
+        "password": "12345",
+        "gender": "M",
+        "profilePhoto": "image",
+        "rol": "admin"
+    },
+    {
+        "id": 2,
+        "firstName": "Alejandro",
+        "lastName": "Garcia",
+        "email": "alejo.9418@hotmail.com",
+        "password": "12345",
+        "gender": "M",
+        "profilePhoto": "image",
+        "rol": "admin"
+    },
+    {
+        "id": 3,
+        "firstName": "Marcel",
+        "lastName": "Piñeros",
+        "email": "mpineross25@gmail.com",
+        "password": "12345",
+        "gender": "M",
+        "profilePhoto": "image",
+        "rol": "admin"
+    },
+    {
+        "id": 4,
+        "firstName": "Manuela",
+        "lastName": "Quiroz",
+        "email": "manuela.quiroz@gmail.com",
+        "password": "12345",
+        "gender": "F",
+        "profilePhoto": "image",
+        "rol": "admin"
+    },
+    {
+        "id": 5,
+        "firstName": "Pepipo",
+        "lastName": "Perez",
+        "email": "pepitoperez@gmail.com",
+        "password": "12345",
+        "gender": "undefined",
+        "profilePhoto": "image",
+        "rol": "user"
+    }
+]
