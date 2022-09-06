@@ -19,7 +19,6 @@ Este E-commerce esta enfocado en la venta de todo tipos de chaquetas ya sea en c
 <li type="circle">Alejandro García</li>
 <li type="circle">Marcel Piñeros</li>
 <li type="circle">Manuela Quiroz</li>
-<li type="circle">Cristian Salazar</li>
 </ul>
 
 ## Trello
