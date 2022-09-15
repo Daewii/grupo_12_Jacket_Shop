@@ -2,7 +2,9 @@ const express = require('express');
 const { get } = require('http');
 const path = require('path');
 
-const indexRouter = require("./routes/indexRoute");
+const mainRouter = require("./routes/mainRoute");
+const productsRouter = require('./routes/productsRoute')
+const userRouter = require('./routes/userRoute')
 
 const app = express();
 
@@ -15,7 +17,10 @@ app.listen(3000, () => {
 });
 
 app.set('view engine', 'ejs');
-app.use('/', indexRouter);
+app.use('/', mainRouter);
+app.use('/products', productsRouter);
+app.use('/user', userRouter);
+
 
 /*app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, './views/index.html'))
