@@ -1,0 +1,13 @@
+[
+ {
+  "id": 1,
+  "name": "chaqueta de jean",
+  "description": "kljdfakdshakjsdhasjdhasjdkhjkdghldk",
+  "image": "image",
+  "category": "in-sale",
+  "materials": "jean",
+  "color": "azul",
+  "size": "M",
+  "price": 250000
+ }
+]

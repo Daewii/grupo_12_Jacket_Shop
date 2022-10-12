@@ -2,10 +2,44 @@
 <html lang="en">
 
 <%- include("partials/head")%>
-<%- include("partials/header")%>
-<body>
- <H1>Página de carrito</H1>
-    <%- include("partials/footer") %> 
-</body>
+    <%- include("partials/header")%>
+
+        <body>
+            <section>
+                <div class="yourCart">
+                    <H1 class="titleCart">Tu carrito</H1>
+                    <div class="tableCartTitle">
+                        <div class="cartTitleProduct">Producto</div>
+                        <div class="cartTitleProduct">Color</div>
+                        <div class="cartTitleProduct">Talla</div>
+                        <div class="cartTitleQty">Cantidad</div>
+                        <div class="deleteSpace"></div>
+                        <div class="cartTitlePrice">Precio</div>
+                    </div>
+                    <!-- Un forEach por cada producto en el carrito-->
+                    <div class="tableCartProduct">
+                        <div class="product">ITEM</div>
+                        <div class="cartTitleProduct">Checkbox</div>
+                        <div class="cartTitleProduct">List</div>
+                        <div class="productQty">- 1 +</div>
+                        <div class="delete">Borrar</div>
+                        <div class="productPrice">99.99</div>
+                    </div>
+                    <div class="tableCartTotal">
+                        <div class="Space"></div>
+                        <div class="totalPrice">Total</div>
+                        <div class="finalPrice">99.99
+                            <!-- Sumatoria de los precio de los productos-->
+                        </div>
+                    </div>
+                    <div class="buttonCartDiv">
+                        <button type="submit" class="buttonCart" name="buy" value="Update">
+                            <span>Comprar</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <%- include("partials/footer") %>
+        </body>
 
 </html>

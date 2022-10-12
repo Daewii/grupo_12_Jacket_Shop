@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("partials/head", {title: 'Editando: ' + product.name})%>
+    <%- include("partials/header")%>
+
+        <body>
+            <h1 class="titleAddProduct">Editar producto: <i>
+                    <%= product.name %>
+                </i></h1>
+            <br>
+            <section class="formProductAdd">
+                <form action="/products/<%=product.id%>?_method=PUT" method="post">
+                    <label for="name">Nombre </label>
+                    <p><input type="text" name="name" id="" value="<%=product.name%>"></p>
+                    <label for="description">Descripción </label>
+                    <p><input type="text" name="description" id="" value="<%=product.description%>"></p>
+                    <label for="image">Fotos </label>
+                    <p><input type="file" name="image" id=""></p>
+                    <label for="category">Categoria </label>
+                    <p><input type="text" name="category" id="" value="<%=product.category%>"></p>
+                    <label for="materials">Materiales </label>
+                    <p><input type="text" name="materials" id="" value="<%=product.materials%>"></p>
+                    <label for="color">Color </label>
+                    <p><input type="text" name="color" id="" value="<%=product.color%>"></p>
+                    <label for="size">Talla </label>
+                    <p><input type="text" name="size" id="" value="<%=product.size%>"></p>
+                    <label for="price">Precio </label>
+                    <p><input type="number" name="price" id="" value="<%=product.price%>"></p>
+                    <br>
+                    <p> <button class="buttonEdit" type="submit">Editar</button>
+
+                        <a class="buttonBackProducts" href="/products">Listado de Productos</a>
+                    </p>
+                </form>
+                <form action="/products/<%=product.id%>?_method=DELETE" method="POST">
+
+                    <button type="submit" class="buttonDelete">BORRAR</button>
+
+                </form>
+            </section>
+            <%- include("partials/footer") %>
+        </body>
+
+</html>

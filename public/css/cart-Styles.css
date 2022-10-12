@@ -1,0 +1,72 @@
+.yourCart {
+    padding-top: 200px;
+    padding-left: 50px;
+}
+
+.titleCart {
+    margin-bottom: 13px;
+}
+
+.tableCartTitle,
+.tableCartProduct,
+.tableCartTotal {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 75%;
+}
+
+.cartTitleProduct,
+.product {
+    width: 35%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.cartTitleQty,
+.productQty {
+    width: 20%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.deleteSpace,
+.delete,
+.totalPrice {
+    width: 12%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.cartTitlePrice,
+.productPrice,
+.finalPrice {
+    width: 15%;
+    text-align: right;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.Space {
+    width: 125%;
+}
+
+.buttonCartDiv {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    width: 75%;
+}
+
+.buttonCart {
+    position: relative;
+    display: block;
+    font-weight: 500;
+    font-size: .875rem;
+    color: rgb(0, 0, 0);
+    padding: 1rem 1.875rem;
+}
