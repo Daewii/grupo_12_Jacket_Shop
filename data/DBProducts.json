@@ -9,5 +9,16 @@
   "color": "azul",
   "size": "M",
   "price": 250000
+ },
+ {
+  "id": 2,
+  "name": "Chaqueta prueba 1",
+  "description": "Chaqueta prueba 1",
+  "image": "default-image.png",
+  "category": "in-sale",
+  "materials": "Jean",
+  "color": "azul",
+  "size": "L",
+  "price": "5000000"
  }
 ]

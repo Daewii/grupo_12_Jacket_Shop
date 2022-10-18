@@ -22,6 +22,14 @@ material varchar(500));
 create table color (id int primary key auto_increment, 
 name varchar(50));
 
+create table users (id int primary key auto_increment, 
+first_name varchar(50), 
+last_name varchar(50), 
+email varchar(50),
+password varchar(50),
+gender varchar(50),
+profile_photo varchar(300));
+
 //Relacionando tablas
 ALTER TABLE categories  ADD CONSTRAINT products_id  
 FOREIGN KEY (products_id)  
@@ -39,4 +47,8 @@ ALTER TABLE products  ADD CONSTRAINT sizes_id
 FOREIGN KEY (sizes_id)  
 REFERENCES sizes (id)	
 
+alter table roles
+add constraint users_id
+foreign key(users_id)
+references users (id);
 
