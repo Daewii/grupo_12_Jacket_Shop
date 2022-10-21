@@ -1,26 +1,27 @@
-//Creación de base de datos.
-
 Create database jacket_shop_db;
-
-//Creación de tablas
+Use jacket_shop_db;
+/*Creación de tablas*/
 create table products (id int primary key auto_increment,
 name varchar(50), 
 description varchar(200), 
 image varchar(200), 
 price int,
-materials_id int,
-colors_id int,
-sizes_id int);
+material_id int,
+color_id int,
+size_id int,
+category_id int);
 
-create table category (id int primary key auto_increment, 
-name varchar(50),
-products_id int);
+create table categories (id int primary key auto_increment, 
+name varchar(50));
 
 create table materials (id int primary key auto_increment, 
 material varchar(500));
 
-create table color (id int primary key auto_increment, 
+create table colors (id int primary key auto_increment, 
 name varchar(50));
+
+create table sizes (id int primary key auto_increment,
+size varchar(50));
 
 create table users (id int primary key auto_increment, 
 first_name varchar(50), 
@@ -28,27 +29,31 @@ last_name varchar(50),
 email varchar(50),
 password varchar(50),
 gender varchar(50),
-profile_photo varchar(300));
+profile_photo varchar(300),
+rol_id int);
 
-//Relacionando tablas
-ALTER TABLE categories  ADD CONSTRAINT products_id  
-FOREIGN KEY (products_id)  
-REFERENCES products (id)
+create table roles (id int primary key auto_increment,
+rol varchar(50));
 
-ALTER TABLE products  ADD CONSTRAINT materials_id  
-FOREIGN KEY (materials_id)  
-REFERENCES materials (id)	
+/*Relacionando tablas*/
+ALTER TABLE products  ADD CONSTRAINT category_id  
+FOREIGN KEY (category_id  )  
+REFERENCES categories (id);
 
-ALTER TABLE products  ADD CONSTRAINT colors_id  
-FOREIGN KEY (colors_id)  
-REFERENCES colors (id)	
+ALTER TABLE products  ADD CONSTRAINT material_id  
+FOREIGN KEY (material_id)  
+REFERENCES materials (id);	
 
-ALTER TABLE products  ADD CONSTRAINT sizes_id  
-FOREIGN KEY (sizes_id)  
-REFERENCES sizes (id)	
+ALTER TABLE products  ADD CONSTRAINT color_id  
+FOREIGN KEY (color_id)  
+REFERENCES colors (id);
 
-alter table roles
-add constraint users_id
-foreign key(users_id)
-references users (id);
+ALTER TABLE products  ADD CONSTRAINT size_id  
+FOREIGN KEY (size_id)  
+REFERENCES sizes (id);
+
+alter table users
+add constraint rol_id
+foreign key(rol_id)
+references roles (id);
 

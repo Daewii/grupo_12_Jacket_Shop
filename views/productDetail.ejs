@@ -1,10 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<link rel="stylesheet" href="/css/productDetail-Styles.css">
 <%- include("partials/head")%>
 <%- include("partials/header")%>
 <body>
- <h1>Detalle del producto</h1>
+    <div class="product">
+        <div class="product-small-img">
+
+            <img src="\images\product1.jpg" onclick="myFunction(this)">
+            <img src="\images\Tarjeta-Hombres.png" onclick="myFunction(this)">
+            <img src="\images\product1.jpg" onclick="myFunction(this)">
+            <img src="\images\product1.jpg" onclick="myFunction(this)">
+
+        </div>
+
+    <div class="container-full-img">
+
+            <img id="imgContainerBox"src="\images\product1.jpg">
+            
+    </div>
+
+    </div>
+    
+    <script>
+        function myFunction(smallImg){
+            var fullImg= document.getElementById("imgContainerBox");
+            fullImg.src = smallImg.src;
+        }
+    </script>
+
+    
+
     <%- include("partials/footer") %> 
 </body>
 
