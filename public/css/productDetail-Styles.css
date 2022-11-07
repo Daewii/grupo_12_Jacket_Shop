@@ -31,4 +31,27 @@
     position: absolute;
     display: flex;
     
+    
+    
+}
+
+
+
+.productDescription h1{
+    margin-bottom: 10px;
+}
+.productDescription select{
+    margin-bottom: 10px;
+}
+.productDescription h4{
+    margin-bottom: 10px;
+    color:dimgrey;
+}
+.productDescription input{
+    margin-bottom: 10px;
+    width: 40px;
+    
+}
+.productDescription button{
+    margin-bottom: 20px;
 }
