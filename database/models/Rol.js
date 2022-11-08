@@ -24,5 +24,5 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: 'rol_id'
         })
     }
-    return User;
+    return Rol;
 }

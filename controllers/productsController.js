@@ -1,7 +1,7 @@
 var path = require('path');
 const fs = require('fs');
-const productsFilePath = path.join(__dirname, '../data/DBProducts.json');
-let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+const db = require('../database/models');
+const sequelize = db.sequelize;
 
 const controlador = {
     indexProducts: (req, res, next) => {
@@ -16,9 +16,29 @@ const controlador = {
         res.render('cartDetail')
     },
     productAdd: (req, res, next) => {
-        res.render('productAdd')
+        let promColors = db.Color.findAll();
+        let promMaterials = db.Material.findAll();
+        let promSizes = db.Size.findAll();
+        let promCategories = db.Category.findAll();
+
+        Promise.all([promColors, promMaterials, promSizes, promCategories])
+        .then(([colors, materials, sizes, categories])=> {
+            res.render('productAdd', {colors, materials, sizes, categories})
+        })
     },
     productCreate: (req, res, next) => {
+        db.Product.create({
+            name: req.body.name,
+            description: req.body.description,
+            category_id: req.body.category_id,
+            material_id: req.body.material_id,
+            color_id: req.body.color_id,
+            size_id: req.body.size_id,
+            price: req.body.price
+        })
+        db.ProductImage.create({
+    
+        })
         let newProduct = {
             id: products[products.length - 1].id + 1,
             name: req.body.name,

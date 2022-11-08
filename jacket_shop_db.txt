@@ -37,6 +37,10 @@ genre varchar(30)
 create table roles (id int primary key auto_increment,
 rol varchar(50));
 
+create table productImages (id int primary key auto_increment,
+productImage varchar(50), 
+product_id int(255));
+
 /*Relacionando tablas*/
 ALTER TABLE products  ADD CONSTRAINT category_id  
 FOREIGN KEY (category_id  )  
@@ -59,3 +63,7 @@ add constraint rol_id
 foreign key(rol_id)
 references roles (id);
 
+alter table productImages
+add constraint product_id
+foreign key(product_id)
+references products (id);

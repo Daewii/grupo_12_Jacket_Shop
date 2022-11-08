@@ -1,4 +1,5 @@
 var path = require('path');
+
 const controlador = {
     login:(req, res, next) => {
         res.render('login');
