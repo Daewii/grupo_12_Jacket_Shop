@@ -14,20 +14,42 @@
             <p><input type="text" name="description" id="" required> </p>
             <label for="image">Fotos </label>
             <p><input type="file" name="image" id=""></p>
-            <label for="category_id">Categoria </label>
-            <p><input type="text" name="category_id" id="" required></p>
-            <label for="material_id">Materiales </label>
-            <p><input type="text" name="material_id" id="" required></p>
-            <label for="color_id">Color </label>
-            <p><input type="text" name="color_id" id="" required></p>
-            <select name="size_id">
-                <option selected disabled>Seleciona una talla -</option>
-                <option>S</option>
-                <option>M</option>
-                <option>L</option>
-                <option>XL</option>
-                <option>XXL</option>
+            <div>
+                <label for="category_id">Categoría </label>
+            <select name="category_id">
+                <option selected disabled>Elige la categoría -</option>
+            <% categories.forEach(oneCategory => { %>
+                <option value="<%= oneCategory.id %>"><%= oneCategory.category %></option>
+            <% }) %>
             </select>
+        </div>
+        <div>
+            <label for="material_id">Materiales </label>
+            <select name="material_id">
+                <option selected disabled>Elige el material -</option>
+            <% materials.forEach(Material => { %>
+                <option value="<%= Material.id %>"><%= Material.material %></option>
+            <% }) %>
+            </select>
+        </div>
+        <div>
+            <label for="color_id">Colores </label>
+            <select name="color_id">
+                <option selected disabled>Elige el color -</option>
+            <% colors.forEach(Color => { %>
+                <option value="<%= Color.id %>"><%= Color.color %></option>
+            <% }) %>
+            </select>
+        </div>
+        <div>
+            <label for="size_id">Tallas </label>
+            <select name="size_id">
+                <option selected disabled>Elige la talla -</option>
+            <% sizes.forEach(Size => { %>
+                <option value="<%= Size.id %>"><%= Size.size %></option>
+            <% }) %>
+            </select>
+        </div>
             <label for="price">Precio </label>
             <p><input type="number" name="price" id="" required></p>
             <br>

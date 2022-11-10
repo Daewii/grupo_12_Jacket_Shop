@@ -26,8 +26,8 @@ const controlador = {
             res.render('productAdd', {colors, materials, sizes, categories})
         })
     },
-    productCreate: (req, res, next) => {
-        db.Product.create({
+    productCreate: async (req, res, next) => {  
+        const product = await db.Product.create({
             name: req.body.name,
             description: req.body.description,
             category_id: req.body.category_id,
@@ -36,27 +36,19 @@ const controlador = {
             size_id: req.body.size_id,
             price: req.body.price
         })
-        db.ProductImage.create({
-    
+        const image = await db.ProductImage.create({
+            product_id: product.id,
+            productImage: req.file ? req.file.filename : "default-image.png"
         })
-        let newProduct = {
-            id: products[products.length - 1].id + 1,
-            name: req.body.name,
-            description: req.body.description,
-            image: req.file ? req.file.filename : "default-image.png",
-            category: req.body.category,
-            materials: req.body.materials,
-            color: req.body.color,
-            size: req.body.size,
-            price: req.body.price
-        };
-        products.push(newProduct);
-        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
-        res.redirect('/products')
+        Promise.all([product, image])
+        .then(()=> {
+            res.render('index')
+        })
+        .catch(error => res.send(error))
     },
     productEdit: (req, res, next) => {
         let id = req.params.id;
-        let product = products.find(oneProduct => oneProduct.id == id)
+        let product = db.Products.findByPk(id, {include: ['material', 'color', 'size', 'category', 'productImages']})
         res.render('productEdit', { product });
     },
     productUpdate: (req, res) => {

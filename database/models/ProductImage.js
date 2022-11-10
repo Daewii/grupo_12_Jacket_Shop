@@ -7,7 +7,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false,
             autoIncrement: true
         },
-        image:{
+        productImage:{
             type: dataTypes.STRING,
             allowNull: false
         },
