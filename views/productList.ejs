@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("partials/head")%>
+    <%- include("partials/header")%>
+    
+<body>
+    <main>
+        <section><% products.forEach(product => { %>
+                        <h4><%= product.name  %></h4>
+                        <a  href="/<%=product.id %>">Ver detalle de producto</a> 
+                <% }) %> 
+        </section>
+    </main>
+    <%- include("partials/footer") %> 
+</body>
+</html>

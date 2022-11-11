@@ -7,6 +7,14 @@ const controlador = {
     indexProducts: (req, res, next) => {
         res.render('products');
     },
+    productList: (req,res,next)=>{
+       let prmsProducts = db.Product.findAll({include: ['material', 'color', 'size', 'category']})
+        /*Queda pendiente investigar cómo traer la imagen de cada producto*/ 
+            .then(products =>{
+                res.render('productList', {products})
+            })
+
+    },
     productDetail: (req, res, next) => {
         let id = req.params.id;
         let product = products.find(oneProduct => oneProduct.id == id);
@@ -82,6 +90,7 @@ const controlador = {
 		fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, ' '));
 		res.redirect('/');
 	}
+    
 };
 
 module.exports = controlador;
