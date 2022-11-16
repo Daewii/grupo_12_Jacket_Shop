@@ -1,11 +1,12 @@
 .titleAddProduct {
-    padding-top: 200px;
+    padding-top: 20px;
+    padding-left: 100px;
 }
 
 .formProductAdd {
     padding-left: 100px;
 }
 
-.formProductAdd p {
-    padding-bottom: 10px;
+.formProductAdd div, p {
+    padding-bottom: 15px;
 }

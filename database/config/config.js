@@ -4,15 +4,13 @@ module.exports ={
     "password": null,
     "database": "jacket_shop_db",
     "host": "127.0.0.1",
-    "port": "8001",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": null,
-    "database": "database_test",
+    "database": "jacket_shop_db",
     "host": "127.0.0.1",
-    "port": "8001",
     "dialect": "mysql"
   },
   "production": {
