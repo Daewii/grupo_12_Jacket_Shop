@@ -9,9 +9,11 @@ const controlador = {
     },
     productList: (req,res,next)=>{
        let prmsProducts = db.Product.findAll({include: ['material', 'color', 'size', 'category']})
+       let prmsProductImage = db.ProductImage.findAll();
+       Promise.all([prmsProducts, prmsProductImage])
         /*Queda pendiente investigar cómo traer la imagen de cada producto*/ 
-            .then(products =>{
-                res.render('productList', {products})
+            .then(([products, productImage]) =>{
+                res.render('productList', {products, productImage})
             })
 
     },
@@ -31,7 +33,7 @@ const controlador = {
 
         Promise.all([promColors, promMaterials, promSizes, promCategories])
         .then(([colors, materials, sizes, categories])=> {
-            res.render('productAdd', {colors, materials, sizes, categories})
+            res.render('productList', {colors, materials, sizes, categories})
         })
     },
     productCreate: async (req, res, next) => {  

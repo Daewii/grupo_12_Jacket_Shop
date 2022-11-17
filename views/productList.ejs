@@ -4,10 +4,18 @@
     <%- include("partials/header")%>
     
 <body>
+    <h1>Página de todos los productos</h1>
     <main>
         <section><% products.forEach(product => { %>
-                        <h4><%= product.name  %></h4>
-                        <a  href="/<%=product.id %>">Ver detalle de producto</a> 
+                        <% productImage.forEach(image => {%>
+                           <% if (product.id == image.product_id) { %>
+                            <div>
+                            <img src="/images/products/<%= image.productImage %>" width="400px" >
+                            <h4><%= product.name  %></h4>
+                            <a  href="detail/<%=product.id %>">Ver detalle de producto</a> 
+                        </div>
+                            <% } %>
+                            <% }) %>
                 <% }) %> 
         </section>
     </main>

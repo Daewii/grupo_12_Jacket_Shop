@@ -22,11 +22,5 @@ module.exports = (sequelize, dataTypes) => {
 
     const ProductImage = sequelize.define(alias,cols,config);
 
-    ProductImage.associate = function(models){
-        ProductImage.belongsTo(models.Product,{
-            as: 'ProductImage',
-            foreignKey: 'image_id'
-        })
-    }
     return ProductImage;
 }
