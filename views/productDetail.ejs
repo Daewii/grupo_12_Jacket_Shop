@@ -16,29 +16,27 @@
 
         <div class="container-full-img">
 
-            <img id="imgContainerBox"src="\images\product1.jpg">
+            <% image.forEach(image => {%>
+                 <img src="/images/products/<%= image.productImage %>" >
+                 <% }) %>
             
         </div>
 
         <div class="productDescription">
             <p>Inicio/Productos/Chaquetas</p>
-            <h1>Chaqueta de Jean</h1>
-            <h4>%350.000 COP</h4>
-            <select>
-                <option>Seleccione Talla</option>
-                <option>S</option>
-                <option>M</option>
-                <option>L</option>
-                <option>XL</option>
-                <option>XXL</option>
-            </select>
+            <h1><%= product.name %></h1>
+            <h4><%= product.price %>  COP</h4>
+                <select name="size_id">
+                    <option selected disabled>Seleccione Talla -</option>
+                <% sizes.forEach(size => { %>
+                    <option value="<%= size.id %>"><%= size.size %></option>
+                <% }) %>
+                </select>
             <input type="number" value="1">
             <button class="btnComprar">Comprar</button>
 
             <h3>Detalle del producto</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
-                printer took a galley of type and scrambled it to make a type specimen book.</p>
+            <p><%= product.description %> </p>
         </div>
     </div>
     <script>
@@ -46,10 +44,8 @@
             var fullImg= document.getElementById("imgContainerBox");
             fullImg.src = smallImg.src;
         }
-    </script>
-    
-
-    <%- include("partials/footer") %> 
+        </script>
 </body>
+<%- include("partials/footer") %> 
 
 </html>

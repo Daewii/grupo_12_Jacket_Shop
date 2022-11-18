@@ -19,8 +19,17 @@ const controlador = {
     },
     productDetail: (req, res, next) => {
         let id = req.params.id;
-        let product = products.find(oneProduct => oneProduct.id == id);
-        res.render('productDetail', { product });
+        let promProduct = db.Product.findByPk(id);
+        let promSizes = db.Size.findAll();
+        let promProductImage = db.ProductImage.findAll({
+            where: {
+                product_id: id
+            }
+        });
+        Promise.all([promProduct, promSizes, promProductImage])
+        .then(([product, sizes, image]) => {
+            res.render('productDetail', { product, sizes, image });
+        })
     },
     productCart: (req, res, next) => {
         res.render('cartDetail')
