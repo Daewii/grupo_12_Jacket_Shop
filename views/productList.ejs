@@ -4,19 +4,28 @@
     <%- include("partials/header")%>
     
 <body>
-    <h1>Página de todos los productos</h1>
     <main>
-        <section><% products.forEach(product => { %>
-                        <% productImage.forEach(image => {%>
-                           <% if (product.id == image.product_id) { %>
-                            <div>
-                            <img src="/images/products/<%= image.productImage %>" width="400px" >
-                            <h4><%= product.name  %></h4>
-                            <a  href="detail/<%=product.id %>">Ver detalle de producto</a> 
+        <section>
+            <h1 class="title-products">Página de todos los productos</h1>
+            <div class="all-products">
+                <% products.forEach(product => { %>
+                    <% productImage.forEach(image => {%>
+                        <% if (product.id == image.product_id) { %>
+                            <a href="detail/<%=product.id %>">
+                            <article class="products">
+                                <div class="product-image">
+                            <img src="/images/products/<%= image.productImage %>" >
                         </div>
-                            <% } %>
-                            <% }) %>
-                <% }) %> 
+                        <div class="product-description">
+                            <h4><%= product.name  %></h4>
+                            <p><%= product.price %> </p>
+                        </div>
+                    </article>
+                </a> 
+                    <% } %>
+                    <% }) %>
+                    <% }) %> 
+            </div>
         </section>
     </main>
     <%- include("partials/footer") %> 
