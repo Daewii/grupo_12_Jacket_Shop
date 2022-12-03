@@ -6,6 +6,7 @@ const methodOverride = require('method-override');
 const mainRouter = require("./routes/mainRoute");
 const productsRouter = require('./routes/productsRoute')
 const userRouter = require('./routes/userRoute')
+const apiUsersRouter = require( './routes/api/users');
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use('/', mainRouter);
 
 app.use('/products', productsRouter);
 app.use('/user', userRouter);
+app.use('/api/users', apiUsersRouter);
 
 
 app.listen(3000, () => {
