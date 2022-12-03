@@ -26,13 +26,9 @@
     "express-session": "^1.17.3",
     "method-override": "^3.0.0",
     "multer": "^1.4.5-lts.1",
-<<<<<<< HEAD
-    "nodemon": "^2.0.20"
-=======
     "mysql2": "^2.3.3",
     "normalize.css": "^8.0.1",
     "sequelize": "^6.25.5",
     "sequelize-cli": "^6.5.2"
->>>>>>> 8d52e3225134c328728b847afb9aa6fbee033c4e
   }
 }
