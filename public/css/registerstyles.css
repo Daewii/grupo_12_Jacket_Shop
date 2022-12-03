@@ -1,0 +1,188 @@
+/*registro*/
+
+body {
+    margin: auto;
+}
+
+.allregisterbox {
+    margin-top: 120px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+
+.registerimg {
+    display: flex;
+    height: 300px;
+    width: 300px;
+    margin: auto;
+    box-shadow: 0 0 20px rgb(100, 100, 100);
+    display: none;
+}
+
+
+.registerheader {
+    font-family: 'Poppins';
+    font-size: larger;
+    color: #2f2f3e;
+    font-weight: bolder;
+    margin-bottom: 20px;
+    align-self: center;
+}
+
+.registerbox1 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    padding-left: 30px;
+    width: 350px;
+    max-width: 500px;
+    margin-top: 70px;
+}
+
+.fullnamelabel {
+    display: flex;
+    font-family: "poppins";
+    color: #929395;
+}
+
+.fullnamereg {
+    width: 100%;
+    height: 30px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border-color: #c4c6ca;
+    box-shadow: 0 0 2px rgb(187, 186, 186);
+
+}
+
+.birthday {
+    display: flex;
+    font-family: "roboto";
+    color: #929395;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.bday {
+    color: #929395;
+    border-color: #bec1c7;
+    border-radius: 5px;
+    height: 25px;
+}
+
+.emaillabel {
+    display: flex;
+    font-family: "roboto";
+    font-weight: 400;
+    color: #929395;
+}
+
+.emailreg {
+
+    width: 100%;
+    height: 30px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+}
+
+.passwordlabel {
+    display: flex;
+    font-family: "roboto";
+    font-weight: 400;
+    color: #929395;
+}
+
+.passwordreg {
+    width: 100%;
+    height: 30px;
+    border-radius: 8px;
+    margin-bottom: 50px;
+    
+}
+
+input {
+    margin-right: 4px;
+    border:solid 1px #c4c6ca
+}
+
+.emailinfo {
+    display: flex;
+    align-items: flex-start;
+}
+
+.emailinfo1 {
+    display: flex;
+    font-family: "roboto";
+    color: #929395;
+    font-size: 12px;
+    text-align: justify;
+
+}
+
+.submitregbutton {
+    margin-top: 20px;
+    font-family: 'poppins';
+    font-size: larger;
+    color: #2f2f3e;
+    font-weight: bolder;
+    background-color: #1ed73af0;
+    height: 38px;
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 10px;
+    border: #0b5816f0;
+    transition: 25ms;
+}
+
+.submitregbutton:hover {
+    color: #090909;
+    background-color: #1ed73ab4;
+}
+
+.termsandcond {
+    color: #929395;
+    font-family: 'roboto';
+    font-size: 10px;
+    margin-bottom: 10px;
+    text-align: justify;
+    margin-top: 10PX;
+}
+
+.termsandcond1 {
+    text-decoration: underline;
+    color:#929395
+}
+
+.userlogin {
+    color: #2f2f3e;
+    font-family: 'roboto';
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.linklogin {
+    text-decoration: underline;
+    color: #2f2f3e;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
