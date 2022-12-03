@@ -15,20 +15,47 @@
                     <p><input type="text" name="name" id="" value="<%=product.name%>"></p>
                     <label for="description">Descripción </label>
                     <p><input type="text" name="description" id="" value="<%=product.description%>"></p>
-                    <label for="image">Fotos </label>
-                    <p><input type="file" name="image" id=""></p>
-                    <label for="category">Categoria </label>
-                    <p><input type="text" name="category" id="" value="<%=product.category%>"></p>
-                    <label for="materials">Materiales </label>
-                    <p><input type="text" name="materials" id="" value="<%=product.materials%>"></p>
-                    <label for="color">Color </label>
-                    <p><input type="text" name="color" id="" value="<%=product.color%>"></p>
-                    <label for="size">Talla </label>
-                    <p><input type="text" name="size" id="" value="<%=product.size%>"></p>
+                    
+                    <div>
+                        <label for="category_id">Categoría </label>
+                    <select name="category_id">
+                        <option selected disabled>Elige la categoría -</option>
+                    <% categories.forEach(oneCategory => { %>
+                        <option value="<%= oneCategory.id %>"><%= oneCategory.category %></option>
+                    <% }) %>
+                    </select>
+                </div>
+                <div>
+                    <label for="material_id">Materiales </label>
+                    <select name="material_id">
+                        <option selected disabled>Elige el material -</option>
+                    <% materials.forEach(Material => { %>
+                        <option value="<%= Material.id %>"><%= Material.material %></option>
+                    <% }) %>
+                    </select>
+                </div>
+                <div>
+                    <label for="color_id">Colores </label>
+                    <select name="color_id">
+                        <option selected disabled>Elige el color -</option>
+                    <% colors.forEach(Color => { %>
+                        <option value="<%= Color.id %>"><%= Color.color %></option>
+                    <% }) %>
+                    </select>
+                </div>
+                <div>
+                    <label for="size_id">Tallas </label>
+                    <select name="size_id">
+                        <option selected disabled>Elige la talla -</option>
+                    <% sizes.forEach(Size => { %>
+                        <option value="<%= Size.id %>"><%= Size.size %></option>
+                    <% }) %>
+                    </select>
+                </div>
                     <label for="price">Precio </label>
                     <p><input type="number" name="price" id="" value="<%=product.price%>"></p>
                     <br>
-                    <p> <button class="buttonEdit" type="submit">Editar</button>
+                    <p> <button class="buttonEdit" type="submit">Actualizar</button>
 
                         <a class="buttonBackProducts" href="/products">Listado de Productos</a>
                     </p>

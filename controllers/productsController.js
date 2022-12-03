@@ -1,75 +1,123 @@
-var path = require('path');
+const path = require('path');
 const fs = require('fs');
-const productsFilePath = path.join(__dirname, '../data/DBProducts.json');
-let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+const db = require('../database/models');
+const { promiseImpl } = require('ejs');
+const sequelize = db.sequelize;
 
 const controlador = {
     indexProducts: (req, res, next) => {
-        res.render('products');
+        res.render('products')
+        .catch(error => res.send(error))
+    },
+    productList: (req, res, next)=>{
+       let prmsProducts = db.Product.findAll({include: ['material', 'color', 'size', 'category']})
+       let prmsProductImage = db.ProductImage.findAll();
+       Promise.all([prmsProducts, prmsProductImage])
+        /*Queda pendiente investigar cómo traer la imagen de cada producto*/ 
+            .then(([products, productImage]) =>{
+                res.render('productList', {products, productImage})
+            })
+            .catch(error => res.send(error))
     },
     productDetail: (req, res, next) => {
         let id = req.params.id;
-        let product = products.find(oneProduct => oneProduct.id == id);
-        res.render('productDetail', { product });
+        let promProduct = db.Product.findByPk(id);
+        let promSizes = db.Size.findAll();
+        let promProductImage = db.ProductImage.findAll({
+            where: {
+                product_id: id
+            }
+        });
+        Promise.all([promProduct, promSizes, promProductImage])
+        .then(([product, sizes, image]) => {
+            res.render('productDetail', { product, sizes, image });
+        })
+        .catch(error => res.send(error))
     },
     productCart: (req, res, next) => {
         res.render('cartDetail')
     },
     productAdd: (req, res, next) => {
-        res.render('productAdd')
+        let promColors = db.Color.findAll();
+        let promMaterials = db.Material.findAll();
+        let promSizes = db.Size.findAll();
+        let promCategories = db.Category.findAll();
+
+        Promise.all([promColors, promMaterials, promSizes, promCategories])
+        .then(([colors, materials, sizes, categories])=> {
+            res.render('productList', {colors, materials, sizes, categories})
+        })
+        .catch(error => res.send(error))
     },
-    productCreate: (req, res, next) => {
-        let newProduct = {
-            id: products[products.length - 1].id + 1,
+    productCreate: async (req, res, next) => {  
+        const product = await db.Product.create({
             name: req.body.name,
             description: req.body.description,
-            image: req.file ? req.file.filename : "default-image.png",
-            category: req.body.category,
-            materials: req.body.materials,
-            color: req.body.color,
-            size: req.body.size,
+            category_id: req.body.category_id,
+            material_id: req.body.material_id,
+            color_id: req.body.color_id,
+            size_id: req.body.size_id,
             price: req.body.price
-        };
-        products.push(newProduct);
-        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
-        res.redirect('/products')
+        })
+        const image = await db.ProductImage.create({
+            product_id: product.id,
+            productImage: req.file ? req.file.filename : "default-image.png"
+        })
+        Promise.all([product, image])
+        .then(()=> {
+            res.render('index')
+        })
+        .catch(error => res.send(error))
     },
     productEdit: (req, res, next) => {
         let id = req.params.id;
-        let product = products.find(oneProduct => oneProduct.id == id)
-        res.render('productEdit', { product });
+        let promColors = db.Color.findAll();
+        let promMaterials = db.Material.findAll();
+        let promSizes = db.Size.findAll();
+        let promCategories = db.Category.findAll();
+        let promProduct = db.Product.findByPk(id, {include: ['material', 'color', 'size', 'category']})
+        Promise.all([promProduct, promColors, promMaterials, promSizes, promCategories])
+        .then(([product, colors, materials, sizes, categories]) => {
+            res.render('productEdit', { product, colors, materials, sizes, categories })
+        })
+        .catch(error => res.send(error))
     },
     productUpdate: (req, res) => {
-        let id = req.params.id
-        let productToEdit = products.find(product => product.id == id)
-        console.log("=======================");
-        console.log(req.body);
-        console.log("=======================");
-        productToEdit = {
-            id: productToEdit.id,
-            ...req.body,
-            image: productToEdit.image
-        };
-
-        let newProducts = products.map(product => {
-            if (product.id == productToEdit.id) {
-                return product = { ...productToEdit }
+        let productId = req.params.id
+        db.Product.update(
+            {
+                name: req.body.name,
+                description: req.body.description,
+                category_id: req.body.category_id,
+                material_id: req.body.material_id,
+                color_id: req.body.color_id,
+                size_id: req.body.size_id,
+                price: req.body.price
+            },
+            {
+                where: {id: productId}
             }
-            return product;
+            //falta guardar la imagen a editar y si la imagen no se va a cambiar dejar la que ya esta
+        )
+        .then(() => {
+            res.redirect('/')
         })
-
-        fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '));
-        products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'))
-        res.redirect('/products/');
-
-
+        .catch(error => res.send(error))
+        
     },
-    ProductDestroy: (req, res) => {
-		let id = req.params.id
-		let finalProducts = products.filter(product => product.id != id);
-		fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, ' '));
-		res.redirect('/');
-	}
+    productDestroy: async (req, res) => {
+        let productId = req.params.id;
+        let promImage = await db.ProductImage.destroy({
+            where: {product_id: productId}
+        })
+        let promProduct = await db.Product.destroy({ where: { id: productId }})
+        Promise.all([promImage, promProduct])
+            .then(([image, product]) => {
+                return res.redirect('/products/list')
+            })
+            .catch(error => res.send(error))
+    }
+    
 };
 
 module.exports = controlador;

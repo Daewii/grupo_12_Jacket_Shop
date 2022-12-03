@@ -14,24 +14,38 @@
 
         </div>
 
-    <div class="container-full-img">
+        <div class="container-full-img">
 
-            <img id="imgContainerBox"src="\images\product1.jpg">
+            <% image.forEach(image => {%>
+                 <img src="/images/products/<%= image.productImage %>" >
+                 <% }) %>
             
-    </div>
+        </div>
 
+        <div class="productDescription">
+            <p>Inicio/Productos/Chaquetas</p>
+            <h1><%= product.name %></h1>
+            <h4><%= product.price %>  COP</h4>
+                <select name="size_id">
+                    <option selected disabled>Seleccione Talla -</option>
+                <% sizes.forEach(size => { %>
+                    <option value="<%= size.id %>"><%= size.size %></option>
+                <% }) %>
+                </select>
+            <input type="number" value="1">
+            <button class="btnComprar">Comprar</button>
+
+            <h3>Detalle del producto</h3>
+            <p><%= product.description %> </p>
+        </div>
     </div>
-    
     <script>
         function myFunction(smallImg){
             var fullImg= document.getElementById("imgContainerBox");
             fullImg.src = smallImg.src;
         }
-    </script>
-
-    
-
-    <%- include("partials/footer") %> 
+        </script>
 </body>
+<%- include("partials/footer") %> 
 
 </html>

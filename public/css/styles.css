@@ -12,9 +12,7 @@ body {
 
 header {
     background-color: rgb(0, 0, 0);
-    position: fixed;
     top: 0;
-    width: 100%;
     padding-top: 10px;
     z-index: 100;
 }
@@ -146,6 +144,7 @@ header {
     padding: 0;
     background-color: #222222;
     z-index: 140;
+    cursor:initial
 
 }
 
@@ -297,7 +296,7 @@ header {
     }
 
     .logo {
-        order: -1;
+        
         height: 100%;
     }
 
@@ -308,7 +307,7 @@ header {
     .search-bar {
         width: 58%;
         left: 25%;
-        top: 20%;
+        top: 5%;
     }
 
     .icons-navbar {
@@ -381,5 +380,11 @@ header {
         right: -1px;
         height: auto;
         padding: 20px 30px 0 30px;
+    }
+    .logo {
+        padding-left: 20px;
+    }
+    .icons-navbar {
+        padding-right: 20px;
     }
 }

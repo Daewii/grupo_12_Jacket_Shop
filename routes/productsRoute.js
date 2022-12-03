@@ -23,9 +23,10 @@ router.get('/detail/:id', productsController.productDetail);
 router.get('/cart', productsController.productCart);
 router.get('/add', productsController.productAdd);
 router.post('/', upload.single('image'), productsController.productCreate);
-router.get('/:id/edit', productsController.productEdit);
+router.get('/edit/:id', productsController.productEdit);
 router.put('/:id', productsController.productUpdate);
-router.delete('/:id', productsController.ProductDestroy);
+router.delete('/:id', productsController.productDestroy);
+router.get('/list', productsController.productList);
 
 
 module.exports = router;

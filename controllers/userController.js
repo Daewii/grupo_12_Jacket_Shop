@@ -1,9 +1,13 @@
 var path = require('path');
+
 const controlador = {
-    login:(req, res, next) => {
+    login: (req, res, next) => {
         res.render('login');
-      },
-    register:(req,res,next)=> {
+    },
+    np: (req, res, next) => {
+        res.render('register');
+    },
+    register: (req, res, next) => {
         res.render('register');
     }
 };

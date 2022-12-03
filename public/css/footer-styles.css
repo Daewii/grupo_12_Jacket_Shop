@@ -2,6 +2,7 @@ footer {
     margin: 0;
     padding: 0;
     text-align: center;
+    bottom: 0;
 }
 
 footer h3 {
