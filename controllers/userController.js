@@ -37,6 +37,41 @@ const controlador = {
         .then(() => {
            return res.render('index')
         })
+    },
+    edit:(req,res)=>{
+        let id = req.params.id;
+        db.User.findByPk(id)
+        .then(user=>{
+            res.render('userEdit',{user})
+        }
+        )
+    },
+    update:  (req, res) =>{
+        let userId = req.params.id
+        db.User.update({
+            first_name : req.body.first_name,
+            last_name: req.body.last_name,
+            email: req.body.email,
+            password: req.body.password,
+            //Hace falta el rol_id
+            birthday: req.body.birthday,
+            genre: req.body.genre
+        },{
+            where: {id: userId}
+        }
+        )
+        .then(() => {
+            res.redirect('/')
+        })
+    },
+        destroy: (req, res) => {
+        let userId = req.params.id;
+        db.User.destroy({ where: { id: userId }})
+
+            .then((user) => {
+                return res.render('index',{user})
+            })
+            .catch(error => res.send(error))
     }
 };
 

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("partials/head", {title: 'Editando: ' + user.first_name})%>
+    <%- include("partials/header")%>
+
+        <body>
+            <h1 class="titleAddProduct">Editar producto: <i>
+                    <%= user.first_name %>
+                </i></h1>
+            <br>
+            <section class="formProductAdd">
+                <form action="/user/<%=user.id%>?_method=PUT" method="post">
+                    <label for="first_name">Nombre </label>
+            <p><input type="text" name="first_name" id="" value="<%=user.first_name%>"></p>
+            <label for="last_name">Apellido </label>
+            <p><input type="text" name="last_name" id="" value="<%=user.last_name%>"> </p>
+            <label for="email">Email </label>
+            <p><input type="email" name="email" id="" value="<%=user.email%>"> </p>
+            <label for="password">Contraseña </label>
+            <p><input type="password" name="password" id="" value="<%=user.password%>"> </p>
+            <label for="profile_photo">Fotos </label>
+            <p><input type="file" name="profile_photo" id=""></p>
+            
+            <label for="birthday">Fecha de nacimiento </label>
+            <p><input type="date" name="birthday" id="" value="<%=user.birthday%>"></p>
+            <br>
+            <label for="genre">Género </label>
+            <p><input type="text" name="genre" id="" value="<%=user.genre%>"></p>
+            <br>
+            <p> <button class="buttonAdd" type="submit">Modificar</button>
+                    </p>
+                </form>
+                <form action="/user/<%=user.id%>?_method=DELETE" method="POST">
+
+                    <button type="submit" class="buttonDelete">BORRAR</button>
+
+                </form>
+            </section>
+            <%- include("partials/footer") %>
+        </body>
+
+</html>
