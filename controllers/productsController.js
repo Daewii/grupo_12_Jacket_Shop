@@ -45,7 +45,7 @@ const controlador = {
 
         Promise.all([promColors, promMaterials, promSizes, promCategories])
         .then(([colors, materials, sizes, categories])=> {
-            res.render('productList', {colors, materials, sizes, categories})
+            res.render('productAdd', {colors, materials, sizes, categories})
         })
         .catch(error => res.send(error))
     },

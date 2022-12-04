@@ -5,7 +5,6 @@ module.exports ={
     "database": "jacket_shop_db",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "port": "3001"
   },
   "test": {
     "username": "root",
@@ -13,7 +12,6 @@ module.exports ={
     "database": "jacket_shop_db",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "port": "3001"
   },
   "production": {
     "username": "root",

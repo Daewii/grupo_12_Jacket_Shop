@@ -7,6 +7,7 @@ const mainRouter = require("./routes/mainRoute");
 const productsRouter = require('./routes/productsRoute')
 const userRouter = require('./routes/userRoute')
 const apiUsersRouter = require( './routes/api/users');
+const apiProductsRouter = require( './routes/api/Products');
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use('/', mainRouter);
 app.use('/products', productsRouter);
 app.use('/user', userRouter);
 app.use('/api/users', apiUsersRouter);
+app.use('/api/products', apiProductsRouter);
 
 
 app.listen(3000, () => {
