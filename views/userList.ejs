@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("partials/head")%>
+    <%- include("partials/header")%>
+    
+<body>
+    <main>
+        <section>
+            <h1 class="title-users">Página de todos los usuarios</h1>
+            <div class="all-users">
+               
+                        <div class="user-detail">
+                            <h4><%= users.first_name  %></h4>
+                            <p><%= users.email %> </p>
+                        </div>
+                    </article>
+                </a> 
+            </div>
+        </section>
+    </main>
+    <%- include("partials/footer") %> 
+</body>
+</html>

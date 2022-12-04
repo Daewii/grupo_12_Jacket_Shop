@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("partials/head")%>
+<%- include("partials/header")%>
+<body>
+    <h1 class="titleAddUser">Agregar Usuario</h1>
+    <br>
+    <section class="formUserAdd">
+        <form action="/user/create" method="post">
+            <label for="first_name">Nombre </label>
+            <p><input type="text" name="first_name" id="" required></p>
+            <label for="last_name">Apellido </label>
+            <p><input type="text" name="last_name" id="" required> </p>
+            <label for="email">Email </label>
+            <p><input type="email" name="email" id="" required> </p>
+            <label for="password">Contraseña </label>
+            <p><input type="password" name="password" id="" required> </p>
+            <label for="profile_photo">Fotos </label>
+            <p><input type="file" name="profile_photo" id=""></p>
+            
+            <label for="birthday">Fecha de nacimiento </label>
+            <p><input type="date" name="birthday" id="" required></p>
+            <br>
+            <label for="genre">Género </label>
+            <p><input type="text" name="genre" id="" required></p>
+            <br>
+            <p> <button class="buttonAdd" type="submit">Agregar</button>
+            
+            <a  class="buttonBackProducts" href="/users">Listado de usuarios</a></p>
+        </form>
+    </section>
+    <%- include("partials/footer") %> 
+</body>
+
+</html>
