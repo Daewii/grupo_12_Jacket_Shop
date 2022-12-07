@@ -44,7 +44,7 @@ const productsAPIController = {
                         status: 200,
                         total: products.length,
                         countByCategory,
-                        url: 'api/movies'
+                        url: 'api/products'
                     },
                     data: productDetail
                 }
@@ -52,7 +52,39 @@ const productsAPIController = {
                 res.json(respuesta);
             })
     },
+    'detail': async (req, res) => {
+        const product = await db.Product
+            .findByPk(req.params.id, {
+                include: {
+                    all: true,
+                },
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then((promProductDetail) => {
+                let respuesta = {
+                    meta: {
+                        status: 200,
+                        url: `api/products/${promProductDetail.id}`
+                    },
+                    data: {
+                        "id": promProductDetail.id,
+                        "name": promProductDetail.name,
+                        "description": promProductDetail.descripcion,
+                        "images": {
+                            "image1": promProductDetail.productImages[0].productImage,
+                        },
+                        "category": promProductDetail.category.category,
+                        "price": promProductDetail.price,
+                        "color": promProductDetail.color.Color,
+                        "url_image": `http://localhost:3000/products/detail/${promProductDetail.id}`,
+                    }
+                }
 
+                res.json(respuesta);
+            })
+    }
 }
 
 module.exports = productsAPIController;
