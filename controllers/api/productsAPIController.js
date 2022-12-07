@@ -16,7 +16,7 @@ const productsAPIController = {
             return {
                 id: product.id,
                 name: product.name,
-                description: product.descripcion,
+                description: product.description,
                 image: product.productImages[0].productImage,
                 category: product.category.category,
                 detail: `http://localhost:3000/products/detail/${product.id}`
@@ -71,7 +71,7 @@ const productsAPIController = {
                     data: {
                         "id": promProductDetail.id,
                         "name": promProductDetail.name,
-                        "description": promProductDetail.descripcion,
+                        "description": promProductDetail.description,
                         "images": {
                             "image1": promProductDetail.productImages[0].productImage,
                         },
