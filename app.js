@@ -8,6 +8,8 @@ const productsRouter = require('./routes/productsRoute')
 const userRouter = require('./routes/userRoute')
 const apiUsersRouter = require( './routes/api/users');
 const apiProductsRouter = require( './routes/api/Products');
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+const cookies = require ('cookie-parser');
 
 const app = express();
 
@@ -22,6 +24,9 @@ app.use(express.urlencoded({ extended: false }));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 app.use('/', mainRouter);
+
+app.use(cookies());
+//app.use(userLoggedMiddleware);
 
 app.use('/products', productsRouter);
 app.use('/user', userRouter);

@@ -4,6 +4,7 @@ const userController = require('../controllers/userController.js');
 
 /* GET home page. */
 router.get('/login', userController.login);
+router.post('/logged', userController.processLogin)
 //router.post('/login', userController);
 router.get('/register', userController.register);
 router.get('/list',userController.list);

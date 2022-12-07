@@ -3,6 +3,7 @@ const fs = require('fs');
 const db = require('../database/models');
 const { promiseImpl } = require('ejs');
 const sequelize = db.sequelize;
+const bcrypt = require ('bcryptjs')
 
 const controlador = {
     indexUsers: (req,res)=>{
@@ -10,6 +11,19 @@ const controlador = {
     },
     login: (req, res, next) => {
         res.render('login');
+    },
+    processLogin:(req,res)=>{
+        db.User.findOne({
+            where: { email: req.body.email }
+        })
+        .then((userToLog)=>{
+            if(bcrypt.compareSync(req.body.contrasena, userToLog.password)){
+                res.render('index')
+            }
+            if(req.body.Remember-session){
+                res.cookie('userEmail', req.body.email, {maxAge: (1000 * 60) * 3600});
+            }
+        })
     },
     register: (req, res, next) => {
         res.render('register');
@@ -29,7 +43,8 @@ const controlador = {
             first_name : req.body.first_name,
             last_name: req.body.last_name,
             email: req.body.email,
-            password: req.body.password,
+            //Encriptación de contraseña con hashing
+            password: bcrypt.hashSync(req.body.password, 10) ,
             //Hace falta el rol_id
             birthday: req.body.birthday,
             genre: req.body.genre
