@@ -5,15 +5,11 @@ const { promiseImpl } = require('ejs');
 const sequelize = db.sequelize;
 
 const controlador = {
-    indexProducts: (req, res, next) => {
-        res.render('products')
-        .catch(error => res.send(error))
-    },
     productList: (req, res, next)=>{
        let prmsProducts = db.Product.findAll({include: ['material', 'color', 'size', 'category']})
        let prmsProductImage = db.ProductImage.findAll();
        Promise.all([prmsProducts, prmsProductImage])
-        /*Queda pendiente investigar cómo traer la imagen de cada producto*/ 
+   
             .then(([products, productImage]) =>{
                 res.render('productList', {products, productImage})
             })
