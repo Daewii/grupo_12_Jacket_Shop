@@ -19,7 +19,7 @@ const productsAPIController = {
                 description: product.description,
                 image: product.productImages[0].productImage,
                 category: product.category.category,
-                detail: `http://localhost:3000/products/detail/${product.id}`
+                detail: `http://localhost:3000/api/products/detail/${product.id}`
             }
         })
         const countCategory = ((categoria) => {
@@ -53,8 +53,9 @@ const productsAPIController = {
             })
     },
     'detail': async (req, res) => {
+        let id = req.params.id
         const product = await db.Product
-            .findByPk(req.params.id, {
+            .findByPk(id, {
                 include: {
                     all: true,
                 },
@@ -62,28 +63,35 @@ const productsAPIController = {
                     id: req.params.id
                 }
             })
-            .then((promProductDetail) => {
+            .then((productDetail) => {
                 let respuesta = {
                     meta: {
                         status: 200,
-                        url: `api/products/${promProductDetail.id}`
+                        url: `api/products/${productDetail.id}`
                     },
                     data: {
-                        "id": promProductDetail.id,
-                        "name": promProductDetail.name,
-                        "description": promProductDetail.description,
+                        "id": productDetail.id,
+                        "name": productDetail.name,
+                        "description": productDetail.description,
                         "images": {
-                            "image1": promProductDetail.productImages[0].productImage,
+                            "image1": productDetail.productImages[0].productImage,
                         },
-                        "category": promProductDetail.category.category,
-                        "price": promProductDetail.price,
-                        "color": promProductDetail.color.Color,
-                        "url_image": `http://localhost:3000/products/detail/${promProductDetail.id}`,
+                        "category": productDetail.category.category,
+                        "price": productDetail.price,
+                        "color": productDetail.color.Color,
+                        "url_image": `http://localhost:3000/api/products/image/${productDetail.productImages[0].id}`,
                     }
                 }
 
                 res.json(respuesta);
             })
+    },
+    'imageDetail': (req, res) => {
+        let id = req.params.id
+        db.ProductImage.findByPk(id)
+        .then((image) => {
+            res.render("imageView", { image })
+        })
     }
 }
 

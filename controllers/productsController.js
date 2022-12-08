@@ -5,10 +5,6 @@ const { promiseImpl } = require('ejs');
 const sequelize = db.sequelize;
 
 const controlador = {
-    indexProducts: (req, res, next) => {
-        res.render('products')
-        .catch(error => res.send(error))
-    },
     productList: (req, res, next)=>{
        let prmsProducts = db.Product.findAll({include: ['material', 'color', 'size', 'category']})
        let prmsProductImage = db.ProductImage.findAll();
