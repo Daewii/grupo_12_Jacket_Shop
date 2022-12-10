@@ -89,9 +89,9 @@ const productsAPIController = {
     'imageDetail': (req, res) => {
         let id = req.params.id
         db.ProductImage.findByPk(id)
-        .then((image) => {
-            res.render("imageView", { image })
-        })
+            .then((image) => {
+                res.render("imageView", { image })
+            })
     }
 }
 
