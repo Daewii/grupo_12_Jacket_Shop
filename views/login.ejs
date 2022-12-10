@@ -1,93 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/login.css">
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/main-section-style.css">
-    <link rel="stylesheet" href="/css/section2-Styles.css">
-    <link rel="stylesheet" href="/css/footer-styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Roboto&display=swap"
-        rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <title>Jacket Shop</title>
-</head>
+<%- include("partials/head")%>
+    <%- include("partials/header")%>
 
+    <style>
+        .bg{
+            background-image: url(imgBootstrap/imgLogin.jpg);
+            background-position: center center;
+            display: block;
+        }
+    </style>
 <body>
-    <header>
-        <div class="navbar">
-            <div class="navbar-top">
-                <div class="burger-menu">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <div class="logo">
-                    <img src="\images\Jacket Shop-logo-white.png" alt="logo blanco">
-                </div>
-                <div class="icons-navbar">
-                    <div class="user-icon">
-                        <div class="login-user-div">
-                        <i class="fas fa-user"></i>
-                        <p>Ingresa</p>
-                        </div>
-                        <div class="hidden-login">
-                        <ul>
-                            <div class="account">
-                                <div class="login-singin">
-                                    <div class="login">Ingresa</div>
-                                    <div class="singin"><a href="#"><span>Crear cuenta</span></a></div>
-                                </div>
-                                <form class="form-login">
-                                    <div class="user-input">
-                                        <input class="user" name="user-login" type="email" placeholder="Email">
-                                    </div>
-                                    <div class="password-input">
-                                        <input class="password" name="user-login" type="password"
-                                            placeholder="Contraseña">
-                                    </div>
-                                    <div class="forgot-password">
-                                        <a href="#">Olvidaste tu contraseña?</a>
-                                    </div><br>
-                                    <div class="Remember-session">
-                                        <input type="checkbox" name="Remember-Session">Recordarme
-                                        
-                                    </div><br>
-                                    <div class="Boton">
-                                        <button>Ingresar</button>
-                                    </div>
-                                </form>
-                                <div class="login-with-socials">
-                                    <div class="title-socials">Ingresa con:</div>
-                                    <div class="socials-btn">
-                                        <button class="social-btn-f"><i
-                                                class="fab fa-facebook-f"></i><span>Facebook</span></button>
-                                        <button class="social-btn-g"><i
-                                                class="fab fa-google"></i><span>Google</span></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </ul>
-                    </div>
-                    </div>
-                    <div class="shopping-car-icon">
-                        <i class="fas fa-shopping-cart"></i>
-                        <p>Carrito</p>
-                    </div>
-                    <div class="mode-icon">
-                        <i class="fas fa-sun"></i>
-                        <p>Modo</p>
-                    </div>
-                </div>
-                <div class="search-bar">
-                    <input type="text" placeholder="Buscar">
-                    <div class="search">
-                        <i class="fa fa-search"></i>
-                    
-    </header>
+    
+    <div class="container">
+        
+            <div class="col text-center">
+                <h2 class="fw-bold text-center py-5">Bienvenido a Jacket Shop</h2>
 
-   <main>
+                <!--Login-->
+                <form action="#">
+                    <div class="mb-4">
+                        <label for="email" class="form-label">Correo electrónico</label><br>
+                        <input type="email" class="form-cotrol" name="email">
+                    </div>
+                    <div class="mb-4">
+                        <label for="password" class="form-label">Contraseña</label><br>
+                        <input type="password" class="form-cotrol" name="email">
+                    </div>
+                    <div class="mb-4 form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Recordarme</label>
+                      </div>
+
+                    <div class="d-grid">
+                        <button type="button" class="btn btn-primary btn-lg">Iniciar Sesión</button>
+                    </div>
+
+                    <div class="my-3">
+                        <span>¿No tienes cuenta? <a href="#">Registrarse</a></span>
+                    </div>
+                </form>
+            </div>
+    </div>
+
+   <!--<main>
     <section class="form-login">
         <h3>Inicio sesion</h3>
     <form action="" class="login">  
@@ -98,22 +55,9 @@
     </form>  
   
    </section>
-   </main>
+   </main>-->
     
-    <footer>
-        <h3>Siguenos en nuestras redes:</h3>
-        <div class="social-media">
-            <div class="icon-footer">
-                <i class="fab fa-facebook"></i>
-            </div>
-            <div class="icon-footer">
-                <i class="fab fa-instagram"></i>
-            </div>
-            <div class="icon-footer">
-                <i class="fab fa-twitter"></i>
-            </div>
-        </div>
-    </footer>
+   <%- include("partials/footer") %>
 </body>
 
-</html><main></main>
+</html>
