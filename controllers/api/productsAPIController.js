@@ -44,7 +44,7 @@ const productsAPIController = {
                         status: 200,
                         total: products.length,
                         countByCategory,
-                        url: 'api/products'
+                        url: 'api/products/'
                     },
                     data: productDetail
                 }
@@ -67,7 +67,7 @@ const productsAPIController = {
                 let respuesta = {
                     meta: {
                         status: 200,
-                        url: `api/products/${productDetail.id}`
+                        url: `api/products/detail/${productDetail.id}`
                     },
                     data: {
                         "id": productDetail.id,
