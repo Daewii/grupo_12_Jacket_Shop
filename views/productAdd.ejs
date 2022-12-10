@@ -6,14 +6,15 @@
 <body>
     <h1 class="titleAddProduct">Agregar Producto</h1>
     <br>
-    <section class="formProductAdd">
-        <form action="/products/create" method="post" enctype="multipart/form-data">
+    <section id="formProductAdd">
+        <ul class="errores"></ul>
+        <form class="form" action="/products/create" method="post" id="productsCreateForms" enctype="multipart/form-data">
             <label for="name">Nombre </label>
-            <p><input type="text" name="name" id="" required></p>
+            <div><input type="text" name="nameProduct" id="nameProduct" required><span></span></div>
             <label for="description">Descripción </label>
-            <p><input type="text" name="description" id="" required> </p>
+            <div><input type="text" name="description" id="description" required><span></span></div>
             <label for="image">Fotos </label>
-            <p><input type="file" name="image" id=""></p>
+            <div><input type="file" name="image" id="image"><span></span></div>
             <div>
                 <label for="category_id">Categoría </label>
             <select name="category_id">
@@ -21,7 +22,7 @@
             <% categories.forEach(oneCategory => { %>
                 <option value="<%= oneCategory.id %>"><%= oneCategory.category %></option>
             <% }) %>
-            </select>
+            </select><span></span>
         </div>
         <div>
             <label for="material_id">Materiales </label>
@@ -30,7 +31,7 @@
             <% materials.forEach(Material => { %>
                 <option value="<%= Material.id %>"><%= Material.material %></option>
             <% }) %>
-            </select>
+            </select><span></span>
         </div>
         <div>
             <label for="color_id">Colores </label>
@@ -39,26 +40,28 @@
             <% colors.forEach(Color => { %>
                 <option value="<%= Color.id %>"><%= Color.color %></option>
             <% }) %>
-            </select>
+            </select><span></span>
         </div>
         <div>
-            <label for="size_id">Tallas </label>
-            <select name="size_id">
+            <label for="sizes_id">Tallas </label>
+            <select name="sizes_id">
                 <option selected disabled>Elige la talla -</option>
-            <% sizes.forEach(Size => { %>
-                <option value="<%= Size.id %>"><%= Size.size %></option>
+            <% sizes.forEach(Sizes => { %>
+                <option value="<%= Sizes.id %>"><%= Sizes.sizes %></option>
             <% }) %>
-            </select>
+            </select><span></span>
         </div>
             <label for="price">Precio </label>
-            <p><input type="number" name="price" id="" required></p>
+            <div><input type="number" name="price" id="price" required><span></span></div>
             <br>
-            <p> <button class="buttonAdd" type="submit">Agregar</button>
+            <div> <button class="buttonAdd" type="submit">Agregar</button>
             
-            <a  class="buttonBackProducts" href="/products">Listado de Productos</a></p>
+            <a  class="buttonBackProducts" href="/products">Listado de Productos</a></div>
         </form>
     </section>
     <%- include("partials/footer") %> 
+    <script src="/js/createValidation.js"></script>
+    
 </body>
 
 </html>
