@@ -16,7 +16,7 @@
             <p><input type="file" name="image" id=""></p>
             <div>
                 <label for="category_id">Categoría </label>
-            <select name="category_id">
+            <select class="form-select" aria-label="Elije la categoría" name="category_id">
                 <option selected disabled>Elige la categoría -</option>
             <% categories.forEach(oneCategory => { %>
                 <option value="<%= oneCategory.id %>"><%= oneCategory.category %></option>
