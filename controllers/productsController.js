@@ -54,6 +54,7 @@ const controlador = {
             color_id: req.body.color_id,
             size_id: req.body.size_id,
             price: req.body.price
+
         })
         const image = await db.ProductImage.create({
             product_id: product.id,

@@ -38,8 +38,8 @@ const controlador = {
     add:(req,res)=>{
         res.render('userAdd')
     },
-    create:(req,res)=>{
-       db.User.create({
+    create:  (req,res)=>{
+       let user = db.User.create({
             first_name : req.body.first_name,
             last_name: req.body.last_name,
             email: req.body.email,
@@ -47,10 +47,13 @@ const controlador = {
             password: bcrypt.hashSync(req.body.password, 10) ,
             //Hace falta el rol_id
             birthday: req.body.birthday,
-            genre: req.body.genre
+            genre: req.body.genre,
+            profile_photo: req.file ? req.file.filename : "default-image.png"
+            
         })
+
         .then(() => {
-           return res.render('index')
+           return res.render('index') 
         })
     },
     edit:(req,res)=>{
