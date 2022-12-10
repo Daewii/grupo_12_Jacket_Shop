@@ -79,9 +79,9 @@ const controlador = {
         })
         .catch(error => res.send(error))
     },
-    productUpdate: (req, res) => {
+    productUpdate: async (req, res) => {
         let productId = req.params.id
-        db.Product.update(
+        let productToEdit = await db.Product.update(
             {
                 name: req.body.name,
                 description: req.body.description,
