@@ -31,3 +31,4 @@ module.exports = userLoggedMiddleware;
 
 
 //Pendiente implementación en el método
+
