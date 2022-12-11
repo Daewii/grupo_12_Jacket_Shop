@@ -42,11 +42,11 @@ window.onload = function () {
 
         name.addEventListener("blur", validateEmptyField)
         description.addEventListener("blur", validateEmptyField)
+        price.addEventListener("blur", validateEmptyField)
         image.addEventListener("blur", validateEmptyField)
         category.addEventListener("blur", validateSelectField)
         material.addEventListener("blur", validateSelectField)
         color.addEventListener("blur", validateSelectField)
         size.addEventListener("blur", validateSelectField)
-        price.addEventListener("blur", validateEmptyField)
 
 }
