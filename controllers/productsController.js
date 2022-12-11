@@ -94,26 +94,39 @@ const controlador = {
             .catch(error => res.send(error))
     },
     productUpdate: async (req, res) => {
+        let errors = validationResult(req);
         let productId = req.params.id
-        let productToEdit = await db.Product.update(
-            {
-                name: req.body.name,
-                description: req.body.description,
-                category_id: req.body.category_id,
-                material_id: req.body.material_id,
-                color_id: req.body.color_id,
-                size_id: req.body.size_id,
-                price: req.body.price
-            },
-            {
-                where: { id: productId }
-            }
-            //falta guardar la imagen a editar y si la imagen no se va a cambiar dejar la que ya esta
-        )
-            .then(() => {
-                res.redirect('/')
+        if (errors.isEmpty()) {
+            let productToEdit = await db.Product.update(
+                {
+                    name: req.body.name,
+                    description: req.body.description,
+                    category_id: req.body.category_id,
+                    material_id: req.body.material_id,
+                    color_id: req.body.color_id,
+                    size_id: req.body.size_id,
+                    price: req.body.price
+                },
+                {
+                    where: { id: productId }
+                })
+                .then(() => {
+                    res.redirect('/')
+                })
+                .catch(error => res.send(error))
+        } else {
+            let id = req.params.id;
+        let promColors = db.Color.findAll();
+        let promMaterials = db.Material.findAll();
+        let promSizes = db.Size.findAll();
+        let promCategories = db.Category.findAll();
+        let promProduct = db.Product.findByPk(id, { include: ['material', 'color', 'size', 'category'] })
+        Promise.all([promProduct, promColors, promMaterials, promSizes, promCategories])
+            .then(([product, colors, materials, sizes, categories]) => {
+                res.render('productEdit', { product, colors, materials, sizes, categories, errors: errors.mapped(), old: req.body })
             })
             .catch(error => res.send(error))
+        }
 
     },
     productDestroy: async (req, res) => {
