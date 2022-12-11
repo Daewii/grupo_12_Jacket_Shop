@@ -115,6 +115,18 @@ CREATE TABLE `products` (
   `category_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `description`, `price`, `material_id`, `color_id`, `size_id`, `category_id`) VALUES
+(1, 'Chaqueta de jean', 'Chaqueta de Jean para hombre y dama', 250000, 1, 2, 3, 1),
+(2, 'Chaqueta de cuero', 'Chaqueta de cuero para hombre y dama', 500000, 2, 3, 3, 1),
+(3, 'Chaqueta de jean - cuero', 'Chaqueta de cujean - cuero para hombre y dama', 400000, 3, 1, 3, 1),
+(4, 'Chaqueta impermeable', 'Chaqueta impermeable para hombre y dama', 150000, 4, 1, 4, 1),
+(5, 'Chaqueta de corduroy', 'Chaqueta de corduroy para hombre y dama', 350000, 5, 3, 3, 1),
+(6, 'Buzo de algodón', 'Buzo de algodón para hombre y dama', 200000, 6, 1, 4, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -125,6 +137,15 @@ CREATE TABLE `roles` (
   `id` int(11) NOT NULL,
   `rol` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `roles`
+--
+
+INSERT INTO `roles` (`id`, `rol`) VALUES
+(1, 'Admin'),
+(2, 'Usuario');
+
 
 -- --------------------------------------------------------
 
@@ -166,6 +187,20 @@ CREATE TABLE `users` (
   `birthday` date DEFAULT NULL,
   `genre` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `profile_photo`, `rol_id`, `birthday`, `genre`) VALUES
+(1, 'Manuela', 'Quiroz', 'Manuela.Quiroz@jacketshop.com', 'JacketShop2022*', 'default-image.png', 1, '2000-01-01', 'F'),
+(2, 'Kissy', 'Urrego', 'Kissy.Urrego@jacketshop.com', 'JacketShop2022*', 'default-image.png', 1, '2000-01-01', 'F'),
+(3, 'Diana', 'Pedroza', 'Diana.Pedroza@jacketshop.com', 'JacketShop2022*', 'default-image.png', 1, '2000-01-01', 'F'),
+(4, 'Marcel', 'Piñeros', 'Marcel.Pineros@jacketshop.com', 'JacketShop2022*', 'default-image.png', 1, '2000-01-01', 'M'),
+(5, 'Mateo', 'Duque', 'Mateo.Duque@jacketshop.com', 'JacketShop2022*', 'default-image.png', 1, '2000-01-01', 'M'),
+(6, 'Alejandro', 'García', 'Alejandro.Garcia@jacketshop.com', 'JacketShop2022*', 'default-image.png', 1, '2000-01-01', 'M');
+
+-- --------------------------------------------------------
 
 --
 -- Índices para tablas volcadas
