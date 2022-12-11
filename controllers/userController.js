@@ -3,7 +3,8 @@ const fs = require('fs');
 const db = require('../database/models');
 const { promiseImpl } = require('ejs');
 const sequelize = db.sequelize;
-const bcrypt = require ('bcryptjs')
+const bcrypt = require ('bcryptjs');
+const { validationResult } = require("express-validator");
 
 const controlador = {
     indexUsers: (req,res)=>{
@@ -39,22 +40,28 @@ const controlador = {
         res.render('userAdd')
     },
     create:  (req,res)=>{
-       let user = db.User.create({
-            first_name : req.body.first_name,
-            last_name: req.body.last_name,
-            email: req.body.email,
-            //Encriptación de contraseña con hashing
-            password: bcrypt.hashSync(req.body.password, 10) ,
-            //Hace falta el rol_id
-            birthday: req.body.birthday,
-            genre: req.body.genre,
-            profile_photo: req.file ? req.file.filename : "default-image.png"
-            
-        })
-
-        .then(() => {
-           return res.render('index') 
-        })
+        let errors = validationResult(req);
+        if (errors.isEmpty()) {
+            let user = db.User.create({
+                 first_name : req.body.first_name,
+                 last_name: req.body.last_name,
+                 email: req.body.email,
+                 //Encriptación de contraseña con hashing
+                 password: bcrypt.hashSync(req.body.password, 10) ,
+                 //Hace falta el rol_id
+                 birthday: req.body.birthday,
+                 genre: req.body.genre,
+                 profile_photo: req.file ? req.file.filename : "default-image.png"
+                 
+             })
+     
+             .then(() => {
+                return res.render('index') 
+             })
+             .catch(error => res.send(error))
+        } else {
+            res.render('userAdd', { errors: errors.mapped(), old: req.body })
+        }
     },
     edit:(req,res)=>{
         let id = req.params.id;

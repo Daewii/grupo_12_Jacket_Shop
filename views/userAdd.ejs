@@ -7,23 +7,47 @@
     <h1 class="titleAddUser">Agregar Usuario</h1>
     <br>
     <section class="formUserAdd">
-        <form action="/user/create" method="post">
+        <form action="/user/create" method="post" enctype="multipart/form-data">
             <label for="first_name">Nombre </label>
-            <p><input type="text" name="first_name" id="" required></p>
+            <p><input type="text" name="first_name" id="" value="<%= locals.old ? old.first_name : '' %>"></p><span></span>
+            <% if (locals.errors && errors.first_name) { %>
+                <div class="validation">
+                    <%= errors.first_name.msg %> 
+                </div>
+            <% } %>
             <label for="last_name">Apellido </label>
-            <p><input type="text" name="last_name" id="" required> </p>
+            <p><input type="text" name="last_name" id="" value="<%= locals.old ? old.last_name : '' %>"> </p><span></span>
+            <% if (locals.errors && errors.last_name) { %>
+                <div class="validation">
+                    <%= errors.last_name.msg %> 
+                </div>
+            <% } %>
             <label for="email">Email </label>
-            <p><input type="email" name="email" id="" required> </p>
+            <p><input type="email" name="email" id="" value="<%= locals.old ? old.email : '' %>"> </p><span></span>
+            <% if (locals.errors && errors.email) { %>
+                <div class="validation">
+                    <%= errors.email.msg %> 
+                </div>
+            <% } %>
             <label for="password">Contraseña </label>
-            <p><input type="password" name="password" id="" required> </p>
+            <p><input type="password" name="password" id=""> </p><span></span>
+            <% if (locals.errors && errors.password) { %>
+                <div class="validation">
+                    <%= errors.password.msg %> 
+                </div>
+            <% } %>
             <label for="profile_photo">Fotos </label>
-            <p><input type="file" name="profile_photo" id=""></p>
-            
+            <p><input type="file" name="profile_photo" id=""></p><span></span>
+            <% if (locals.errors && errors.image) { %>
+                <div class="validation">
+                    <%= errors.image.msg %> 
+                </div>
+            <% } %>
             <label for="birthday">Fecha de nacimiento </label>
-            <p><input type="date" name="birthday" id="" required></p>
+            <p><input type="date" name="birthday" id="" value="<%= locals.old ? old.birthday : '' %>"></p><span></span>
             <br>
             <label for="genre">Género </label>
-            <p><input type="text" name="genre" id="" required></p>
+            <p><input type="text" name="genre" id="" value="<%= locals.old ? old.genre : '' %>"></p><span></span>
             <br>
             <p> <button class="buttonAdd" type="submit">Agregar</button>
             

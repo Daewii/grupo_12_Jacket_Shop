@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const userController = require('../controllers/userController.js');
 const multer = require('multer');
 const path = require('path');
+const userController = require('../controllers/userController.js');
+const validationUserCreateMiddleware = require('../middlewares/validationUserCreateMiddleware')
 
 var multerStorage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -19,10 +20,10 @@ var upload = multer({ storage: multerStorage })
 router.get('/login', userController.login);
 router.post('/logged', userController.processLogin)
 //router.post('/login', userController);
-router.get('/register', userController.register);
+router.get('/register', validationUserCreateMiddleware, userController.register);
 router.get('/list',userController.list);
 router.get('/add', userController.add);
-router.post('/create',upload.single('image'),userController.create);
+router.post('/create',upload.single('image'), validationUserCreateMiddleware, userController.create);
 router.get('/edit/:id', userController.edit);
 router.put('/:id', userController.update);
 router.delete('/:id', userController.destroy);
