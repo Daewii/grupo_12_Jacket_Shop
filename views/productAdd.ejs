@@ -24,7 +24,7 @@
                 </div>
             <% } %>
             <label for="image">Fotos </label>
-            <div><input type="file" name="image" id="image" value="<%= locals.old ? old.image : '' %>"><span></span></div>
+            <div><input type="file" name="image" id="image"><span></span></div>
             <% if (locals.errors && errors.image) { %>
                 <div class="validation">
                     <%= errors.image.msg %> 
