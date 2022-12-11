@@ -18,3 +18,38 @@ More of: Implementación de técnicas de programación que nos permitan llevar u
 Keep Doing: La proactividad al momento de buscar diferentes soluciones que nos lleven a la consecución de nuestros objetivos.
 Less of: Solo quedar con el conocimiento que nos brindan en al cursada.
 Stop Doing: Entregables individuales.
+
+Retrospectiva Sprint 4:
+Start Doing: Comenzamos a poblar nuestro sitio web con datos reales y acordes a la temática del proyecto.
+More of: Continuamos con la implementación de las ideas que cada integrante aporta con el fin de estructurar un código más óptimo.
+Keep Doing: La proactividad al momento de buscar diferentes soluciones que nos lleven a la consecución de nuestros objetivos.
+Less of: Postergar espacios para el avanace del proyecto.
+Stop Doing: En este punto no resaltamos ninguna mala práctica para detener su ejecución.
+
+Retrospectiva Sprint 5:
+Start Doing: Nos dedicamos a informarnos de diversas formas para la construcción de un buen sistema de seguridad.
+More of: Entregas a tiempo para las tareas asignadas con las funcionalidades del Sprint.
+Keep Doing: La proactividad al momento de buscar diferentes soluciones que nos lleven a la consecución de nuestros objetivos.
+Less of: Postergar espacios para el avanace del proyecto.
+Stop Doing: No definir fechas de reuniones o separar los espacios para el trabajo conjunto.
+
+Retrospectiva Sprint 6:
+Start Doing: implementación de los distintos scripts para la creación, edición, o eliminación de bases de datos, tablas, datos, etc.
+More of: Inclusión de todo el equipo en las sesiones sincrónicas para el avance del prouyecto.
+Keep Doing: La retroalimentación que cada uno de los integrantes da y recibe.
+Less of: En este punto no resaltamos ninguna mala práctica para detener su ejecución.
+Stop Doing: En este punto no resaltamos ninguna mala práctica para detener su ejecución.
+
+Retrospectiva Sprint 7:
+Start Doing: Diferentes implementaciones para la manipulación del DOM enfocado en el desarrollo de validaciones.
+More of: Inclusión de todo el equipo en las sesiones sincrónicas para el avance del prouyecto.
+Keep Doing: Busqueda de ayudas didácticas para la resolución entregables del Sprint 7.
+Less of: En este punto no resaltamos ninguna mala práctica para detener su ejecución.
+Stop Doing: En este punto no resaltamos ninguna mala práctica para detener su ejecución.
+
+Retrospectiva Sprint 8:
+Start Doing: Busqueda de nuevos conocimientos que permitan la implementación de tecnologías como React
+More of: Inclusión de todo el equipo en las sesiones sincrónicas para el avance del prouyecto.
+Keep Doing: Iniciativa para la asignación de requerimientos del Sprint.
+Less of: En este punto no resaltamos ninguna mala práctica para detener su ejecución.
+Stop Doing: En este punto no resaltamos ninguna mala práctica para detener su ejecución.
