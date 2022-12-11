@@ -7,7 +7,9 @@
     <h1 class="titleAddProduct">Agregar Producto</h1>
     <br>
     <section id="formProductAdd">
+        <div class="errors">
         <ul class="errores"></ul>
+    </div>
         <form class="form" action="/products/create" method="post" id="productsCreateForms" enctype="multipart/form-data">
             <label for="name">Nombre </label>
             <div><input type="text" name="name" id="name" value="<%= locals.old ? old.name : '' %>"><span></span></div>
@@ -100,7 +102,7 @@
         </form>
     </section>
     <%- include("partials/footer") %> 
-   <!-- <script src="/js/createValidation.js"></script>-->
+
     
 </body>
 

@@ -1,13 +1,13 @@
 const productsCreateForms = document.querySelector("#productsCreateForms");
 
-const productName = document.querySelector("[name=nameProduct]")
+let productName = document.querySelector("[name=name]")
 const productDescription = document.querySelector("[name=description]")
 const productImage = document.querySelector("[name=image]")
 const productCategory = document.querySelector("[name=category_id]")
 const productMaterial = document.querySelector("[name=material_id]")
 const productColors = document.querySelector("[name=colors_id]")
-const productSizes = document.querySelector("[name=sizes_id]")
-const productPrice = document.querySelector("[name=price]")
+const productSizes = document.querySelector("[name=size_id]")
+const productPrice = document.querySelector("[name=price]") 
 
 
 const validateEmptyField = (e) =>{
