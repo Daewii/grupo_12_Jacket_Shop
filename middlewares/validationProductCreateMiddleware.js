@@ -3,11 +3,12 @@ const { body } = require('express-validator');
 
 module.exports = [
     body('name').notEmpty().withMessage('Falta escribir un nombre para el producto')
-    .isLength({min: 5}),
-    body('description').notEmpty().withMessage('Falta escribir una descripción del producto'),
+    .bail().isLength({min: 5}).withMessage('El nombre debe tener mínimo 5 caracteres'),
+    body('description').notEmpty().withMessage('Falta escribir una descripción del producto')
+    .bail().isLength({min: 20}).withMessage('la descripción debe tener mínimo 20 caracteres de largo'),
     body('image').custom((value, { req }) => {
         let file = req.file;
-        let acceptedExtensions = ['.jpg', '.png', '.gif'];
+        let acceptedExtensions = ['.jpg', '.jpeg', '.png', '.gif'];
         if (!file) {
             throw new Error('Tienes que subir una imagen');
         } else {
@@ -19,7 +20,7 @@ module.exports = [
         }
         return true;
     }),
-    body('category_id').notEmpty().withMessage('Falta elegir una categoria'),
+    body('category_id').notEmpty().withMessage('Falta elegir una categoría'),
     body('material_id').notEmpty().withMessage('Falta elegir un material'),
     body('color_id').notEmpty().withMessage('Falta elegir un color'),
     body('size_id').notEmpty().withMessage('Falta elegir una talla'),
