@@ -10,3 +10,8 @@
 .formProductAdd div, p {
     padding-bottom: 15px;
 }
+
+.validation {
+    color: red;
+    font-size: 12px;
+}

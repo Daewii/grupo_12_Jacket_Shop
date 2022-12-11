@@ -10,49 +10,89 @@
         <ul class="errores"></ul>
         <form class="form" action="/products/create" method="post" id="productsCreateForms" enctype="multipart/form-data">
             <label for="name">Nombre </label>
-            <div><input type="text" name="nameProduct" id="nameProduct" required><span></span></div>
+            <div><input type="text" name="name" id="name" value="<%= locals.old ? old.name : '' %>"><span></span></div>
+            <% if (locals.errors && errors.name) { %>
+                <div class="validation">
+                    <%= errors.name.msg %> 
+                </div>
+            <% } %>
             <label for="description">Descripción </label>
-            <div><input type="text" name="description" id="description" required><span></span></div>
+            <div><input type="text" name="description" id="description" value="<%= locals.old ? old.description : '' %>"><span></span></div>
+            <% if (locals.errors && errors.description) { %>
+                <div class="validation">
+                    <%= errors.description.msg %> 
+                </div>
+            <% } %>
             <label for="image">Fotos </label>
-            <div><input type="file" name="image" id="image"><span></span></div>
+            <div><input type="file" name="image" id="image" value="<%= locals.old ? old.image : '' %>"><span></span></div>
+            <% if (locals.errors && errors.image) { %>
+                <div class="validation">
+                    <%= errors.image.msg %> 
+                </div>
+            <% } %>
             <div>
                 <label for="category_id">Categoría </label>
             <select class="form-select" aria-label="Elije la categoría" name="category_id">
                 <option selected disabled>Elige la categoría -</option>
-            <% categories.forEach(oneCategory => { %>
-                <option value="<%= oneCategory.id %>"><%= oneCategory.category %></option>
+            <% categories.forEach(category => { %>
+                <option value="<%= category.id %>" <%= locals.old && old.category_id == category.id ? 'selected' : ''; %>><%= category.category %></option>
             <% }) %>
             </select><span></span>
         </div>
+        <% if (locals.errors && errors.category_id) { %>
+            <div class="validation">
+                <%= errors.category_id.msg %> 
+            </div>
+        <% } %>
         <div>
             <label for="material_id">Materiales </label>
             <select name="material_id">
                 <option selected disabled>Elige el material -</option>
-            <% materials.forEach(Material => { %>
-                <option value="<%= Material.id %>"><%= Material.material %></option>
+            <% materials.forEach(material => { %>
+                <option value="<%= material.id %>" <%= locals.old && old.material_id == material.id ? 'selected' : ''; %>><%= material.material %></option>
             <% }) %>
             </select><span></span>
         </div>
+        <% if (locals.errors && errors.material_id) { %>
+            <div class="validation">
+                <%= errors.material_id.msg %> 
+            </div>
+        <% } %>
         <div>
             <label for="color_id">Colores </label>
             <select name="color_id">
                 <option selected disabled>Elige el color -</option>
-            <% colors.forEach(Color => { %>
-                <option value="<%= Color.id %>"><%= Color.color %></option>
+            <% colors.forEach(color => { %>
+                <option value="<%= color.id %>" <%= locals.old && old.color_id == color.id ? 'selected' : ''; %>><%= color.color %></option>
             <% }) %>
             </select><span></span>
         </div>
+        <% if (locals.errors && errors.color_id) { %>
+            <div class="validation">
+                <%= errors.color_id.msg %> 
+            </div>
+        <% } %>
         <div>
-            <label for="sizes_id">Tallas </label>
-            <select name="sizes_id">
+            <label for="size_id">Tallas </label>
+            <select name="size_id">
                 <option selected disabled>Elige la talla -</option>
-            <% sizes.forEach(Sizes => { %>
-                <option value="<%= Sizes.id %>"><%= Sizes.sizes %></option>
+            <% sizes.forEach(size => { %>
+                <option value="<%= size.id %>" <%= locals.old && old.size_id == size.id ? 'selected' : ''; %>><%= size.size %></option>
             <% }) %>
             </select><span></span>
         </div>
+        <% if (locals.errors && errors.size_id) { %>
+            <div class="validation">
+                <%= errors.size_id.msg %> 
+            </div>
+        <% } %>
             <label for="price">Precio </label>
-            <div><input type="number" name="price" id="price" required><span></span></div>
+            <div><input type="number" name="price" id="price" value="<%= locals.old ? old.price : '' %>"><span></span></div>
+            <% if (locals.errors && errors.price) { %>
+                <div class="validation">
+                    <%= errors.price.msg %> 
+                </div>
+            <% } %>
             <br>
             <div> <button class="buttonAdd" type="submit">Agregar</button>
             
@@ -60,7 +100,7 @@
         </form>
     </section>
     <%- include("partials/footer") %> 
-    <script src="/js/createValidation.js"></script>
+   <!-- <script src="/js/createValidation.js"></script>-->
     
 </body>
 
