@@ -60,7 +60,7 @@ const controlador = {
              })
              .catch(error => res.send(error))
         } else {
-            res.render('userAdd', { errors: errors.mapped(), old: req.body })
+            res.render('register', { errors: errors.mapped(), old: req.body })
         }
     },
     edit:(req,res)=>{
