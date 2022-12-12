@@ -1,12 +1,12 @@
 window.onload = function () {
-    let name = document.querySelector("[name=name]");
-    let description = document.querySelector("[name=description]");
-    let image = document.querySelector("[name=image]");
-    let category = document.querySelector("[name=category_id]");
-    let material = document.querySelector("[name=material_id]");
-    let color = document.querySelector("[name=color_id]");
-    let size = document.querySelector("[name=size_id]");
-    let price = document.querySelector("[name=price]");
+    let name = document.querySelector("[id=nombre]");
+    let description = document.querySelector("[id=descripción]");
+    let image = document.querySelector("[id=imagen]");
+    let category = document.querySelector("[id=categoría]");
+    let material = document.querySelector("[id=material]");
+    let color = document.querySelector("[id=color]");
+    let size = document.querySelector("[id=talla]");
+    let price = document.querySelector("[id=precio]");
     let errosUl = document.querySelector("ul.errores");
     let body = document.querySelector("body");
 
@@ -14,7 +14,7 @@ window.onload = function () {
         const field = e.target;
         if (field.value.trim() === "") {
             const spanTagError = field.nextElementSibling;
-            spanTagError.innerHTML = "</br> El campo " + field.name + " es obligatorio";
+            spanTagError.innerHTML = "</br> El campo " + field.id + " es obligatorio";
             spanTagError.classList.add("is-invalid");
             field.classList.add("alert-warning");
         } else {
@@ -29,7 +29,7 @@ window.onload = function () {
         const field = e.target;
         if (field.value.indexOf() === -1) {
             const spanTagError = field.nextElementSibling;
-            spanTagError.innerHTML = "</br> El campo " + field.name + " es obligatorio";
+            spanTagError.innerHTML = "</br> El campo " + field.id + " es obligatorio";
             spanTagError.classList.add("is-invalid");
             field.classList.add("alert-warning");
         } else {

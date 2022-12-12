@@ -19,21 +19,21 @@
     </div>
         <form class="form" action="/products/create" method="post" id="productsCreateForms" enctype="multipart/form-data">
             <label for="name">Nombre </label>
-            <div><input type="text" name="name" id="name" value="<%= locals.old ? old.name : '' %>"><span></span></div>
+            <div><input type="text" name="name" id="nombre" value="<%= locals.old ? old.name : '' %>"><span></span></div>
             <% if (locals.errors && errors.name) { %>
                 <div class="validation">
                     <%= errors.name.msg %> 
                 </div>
             <% } %>
             <label for="description">Descripción </label>
-            <div><input type="text" name="description" id="description" value="<%= locals.old ? old.description : '' %>"><span></span></div>
+            <div><input type="text" name="description" id="descripción" value="<%= locals.old ? old.description : '' %>"><span></span></div>
             <% if (locals.errors && errors.description) { %>
                 <div class="validation">
                     <%= errors.description.msg %> 
                 </div>
             <% } %>
             <label for="image">Fotos </label>
-            <div><input type="file" name="image" id="image"><span></span></div>
+            <div><input type="file" name="image" id="imagen"><span></span></div>
             <% if (locals.errors && errors.image) { %>
                 <div class="validation">
                     <%= errors.image.msg %> 
@@ -41,7 +41,7 @@
             <% } %>
             <div>
                 <label for="category_id">Categoría </label>
-            <select class="form-select" aria-label="Elije la categoría" name="category_id">
+            <select class="form-select" aria-label="Elije la categoría" name="category_id" id="categoría">
                 <option selected disabled>Elige la categoría -</option>
             <% categories.forEach(category => { %>
                 <option value="<%= category.id %>" <%= locals.old && old.category_id == category.id ? 'selected' : ''; %>><%= category.category %></option>
@@ -55,7 +55,7 @@
         <% } %>
         <div>
             <label for="material_id">Materiales </label>
-            <select name="material_id">
+            <select name="material_id" id="material">
                 <option selected disabled>Elige el material -</option>
             <% materials.forEach(material => { %>
                 <option value="<%= material.id %>" <%= locals.old && old.material_id == material.id ? 'selected' : ''; %>><%= material.material %></option>
@@ -69,7 +69,7 @@
         <% } %>
         <div>
             <label for="color_id">Colores </label>
-            <select name="color_id">
+            <select name="color_id" id="color">
                 <option selected disabled>Elige el color -</option>
             <% colors.forEach(color => { %>
                 <option value="<%= color.id %>" <%= locals.old && old.color_id == color.id ? 'selected' : ''; %>><%= color.color %></option>
@@ -83,7 +83,7 @@
         <% } %>
         <div>
             <label for="size_id">Tallas </label>
-            <select name="size_id">
+            <select name="size_id" id="talla">
                 <option selected disabled>Elige la talla -</option>
             <% sizes.forEach(size => { %>
                 <option value="<%= size.id %>" <%= locals.old && old.size_id == size.id ? 'selected' : ''; %>><%= size.size %></option>
@@ -96,7 +96,7 @@
             </div>
         <% } %>
             <label for="price">Precio </label>
-            <div><input type="number" name="price" id="price" value="<%= locals.old ? old.price : '' %>"><span></span></div>
+            <div><input type="number" name="price" id="precio" value="<%= locals.old ? old.price : '' %>"><span></span></div>
             <% if (locals.errors && errors.price) { %>
                 <div class="validation">
                     <%= errors.price.msg %> 
