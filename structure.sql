@@ -40,7 +40,7 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`id`, `category`) VALUES
 (1, 'Chaqueta'),
-(2, 'Buso');
+(2, 'Buzo');
 
 -- --------------------------------------------------------
 

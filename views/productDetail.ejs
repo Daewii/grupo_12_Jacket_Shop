@@ -6,11 +6,12 @@
 <body>
     <div class="product">
         <div class="product-small-img">
-
-            <img src="\images\product1.jpg" onclick="myFunction(this)">
-            <img src="\images\Tarjeta-Hombres.png" onclick="myFunction(this)">
-            <img src="\images\product1.jpg" onclick="myFunction(this)">
-            <img src="\images\product1.jpg" onclick="myFunction(this)">
+            <% image.forEach(image => {%>
+                <img src="/images/products/<%= image.productImage %>" onclick="myFunction(this)">
+                <img src="/images/products/<%= image.productImage %>" onclick="myFunction(this)">
+                <img src="/images/products/<%= image.productImage %>" onclick="myFunction(this)">
+                <img src="/images/products/<%= image.productImage %>" onclick="myFunction(this)">
+            <% }) %>
 
         </div>
 

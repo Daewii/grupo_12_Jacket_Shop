@@ -1,6 +1,10 @@
 # grupo_12_Jacket_Shop
 
-Este E-commerce esta enfocado en la venta de todo tipos de chaquetas ya sea en cuero, jeans, tela. Para todo aquella persona que se quiera ver bien bacano :)
+Este E-commerce esta enfocado en la venta de todo tipos de chaquetas ya sea en cuero, jeans, tela. Nuestro objetivo es que los clientes que adquieran nuestros productos, no solamente adquieran una cahqueta sino también un recuerdo.
+
+## Público objetivo:
+Nuestro sitio web va dirigido a personas mayores de 16 años que estén en la busqueda de diseños nuevos y frescos.
+
 
 ## Paginas de referencia:
 
