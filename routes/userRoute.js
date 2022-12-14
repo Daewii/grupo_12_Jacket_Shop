@@ -23,7 +23,7 @@ router.post('/logged', userController.processLogin)
 router.get('/register', validationUserCreateMiddleware, userController.register);
 router.get('/list',userController.list);
 router.get('/add', userController.add);
-router.post('/create',upload.single('image'), validationUserCreateMiddleware, userController.create);
+router.post('/create', validationUserCreateMiddleware, userController.create);
 router.get('/edit/:id', userController.edit);
 router.put('/:id', userController.update);
 router.delete('/:id', userController.destroy);
