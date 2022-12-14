@@ -1,46 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Roboto:wght@400;900&display=swap"
+    rel="stylesheet">
 <%- include("partials/head")%>
 <%- include("partials/header")%>
 
 <style>
-    .form{
-        text-align: center;
+    #formProductAdd.registerform{
+        width: 600px;
+        
         
     }
+
+    #productsCreateForms.form{
+        width: 600px;
+        margin-left: 33%;
+    }
+    
+
+   
+
+    body{
+        text-align: center;
+    }
+   
+    .registerheader{
+       font-size: 50px;
+    }
 </style>
+
+
 <body>
-    <h1 class="titleAddProduct">Agregar Producto</h1>
+    <h1 class="registerheader">Agregar Producto</h1>
     <br>
     <section id="formProductAdd">
         <div class="errors">
         <ul class="errores"></ul>
-    </div>
+    <div class="registerform">
         <form class="form" action="/products/create" method="post" id="productsCreateForms" enctype="multipart/form-data">
-            <label for="name">Nombre </label>
-            <div><input type="text" name="name" id="name" value="<%= locals.old ? old.name : '' %>"><span></span></div>
+            <label for="name" class="surnamereg"> <span class="fullnamelabel">Nombre</span></label>
+            <div><input class="fullnamereg" type="text" name="name" id="name" value="<%= locals.old ? old.name : '' %>"><span></span></div>
             <% if (locals.errors && errors.name) { %>
                 <div class="validation">
                     <%= errors.name.msg %> 
                 </div>
             <% } %>
-            <label for="description">Descripción </label>
-            <div><input type="text" name="description" id="description" value="<%= locals.old ? old.description : '' %>"><span></span></div>
+            <label for="description" class="surnamereg"> <span class="fullnamelabel">Descripción</span>  </label>
+            <div><input class="fullnamereg" type="text" name="description" id="description" value="<%= locals.old ? old.description : '' %>"><span></span></div>
             <% if (locals.errors && errors.description) { %>
                 <div class="validation">
                     <%= errors.description.msg %> 
                 </div>
             <% } %>
-            <label for="image">Fotos </label>
+            <label for="image"><span class="fullnamelabel" >Foto</span> </label>
             <div><input type="file" name="image" id="image"><span></span></div>
             <% if (locals.errors && errors.image) { %>
                 <div class="validation">
                     <%= errors.image.msg %> 
                 </div>
             <% } %>
-            <div>
-                <label for="category_id">Categoría </label>
+            <br><div>
+                <label for="category_id"><span class="fullnamelabel" >Categoría</span> </label>
             <select class="form-select" aria-label="Elije la categoría" name="category_id">
                 <option selected disabled>Elige la categoría -</option>
             <% categories.forEach(category => { %>
@@ -53,8 +73,8 @@
                 <%= errors.category_id.msg %> 
             </div>
         <% } %>
-        <div>
-            <label for="material_id">Materiales </label>
+        <br><div>
+            <label for="material_id"><span class="fullnamelabel" >Materiales</span> </label>
             <select name="material_id">
                 <option selected disabled>Elige el material -</option>
             <% materials.forEach(material => { %>
@@ -67,8 +87,8 @@
                 <%= errors.material_id.msg %> 
             </div>
         <% } %>
-        <div>
-            <label for="color_id">Colores </label>
+        <br><div>
+            <label for="color_id"><span class="fullnamelabel" >Colores</span> </label>
             <select name="color_id">
                 <option selected disabled>Elige el color -</option>
             <% colors.forEach(color => { %>
@@ -81,8 +101,8 @@
                 <%= errors.color_id.msg %> 
             </div>
         <% } %>
-        <div>
-            <label for="size_id">Tallas </label>
+       <br> <div>
+            <label for="size_id"><span class="fullnamelabel" >Tallas</span> </label>
             <select name="size_id">
                 <option selected disabled>Elige la talla -</option>
             <% sizes.forEach(size => { %>
@@ -95,18 +115,19 @@
                 <%= errors.size_id.msg %> 
             </div>
         <% } %>
-            <label for="price">Precio </label>
-            <div><input type="number" name="price" id="price" value="<%= locals.old ? old.price : '' %>"><span></span></div>
+            <label class="surnamereg" for="price"><span class="fullnamelabel" >Precio</span></label>
+            <div><input class="fullnamereg" type="number" name="price" id="price" value="<%= locals.old ? old.price : '' %>"><span></span></div>
             <% if (locals.errors && errors.price) { %>
                 <div class="validation">
                     <%= errors.price.msg %> 
                 </div>
             <% } %>
             <br>
-            <div> <button class="buttonAdd" type="submit">Agregar</button>
+            <div> <button class="submitregbutton" type="submit">Agregar</button>
             
             <a  class="buttonBackProducts" href="/products">Listado de Productos</a></div>
         </form>
+        </div>
     </section>
     <%- include("partials/footer") %> 
 

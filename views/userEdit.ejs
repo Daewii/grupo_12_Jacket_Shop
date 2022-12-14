@@ -1,43 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Roboto:wght@400;900&display=swap"
+    rel="stylesheet">
+
 <%- include("partials/head", {title: 'Editando: ' + user.first_name})%>
     <%- include("partials/header")%>
+        <style>
+            .registerheader{
+        font-size: 50px;
+    }
 
+    .userEditForm{
+        width: 600px;
+        margin-left: 30%;
+    }
+
+    body{
+        text-align: center;
+    }
+
+    .passwordreg2{
+        margin-left: 43%;
+    }
+        </style>
         <body>
-            <h1 class="titleAddProduct">Editar producto: <i>
+            <h1 class="registerheader">Editar producto: <i>
                     <%= user.first_name %>
                 </i></h1>
             <br>
             <section class="formProductAdd">
                 <form action="/user/<%=user.id%>?_method=PUT" method="post">
-                    <label for="first_name">Nombre </label>
-            <p><input type="text" name="first_name" id="" value="<%=user.first_name%>"></p>
-            <label for="last_name">Apellido </label>
-            <p><input type="text" name="last_name" id="" value="<%=user.last_name%>"> </p>
-            <label for="email">Email </label>
-            <p><input type="email" name="email" id="" value="<%=user.email%>"> </p>
-            <label for="password">Contraseña </label>
-            <p><input type="password" name="password" id="" value="<%=user.password%>"> </p>
-            <label for="profile_photo">Fotos </label>
+            <div class="userEditForm">     
+
+            <label for="first_name" class="surnamereg"><span class="fullnamelabel">Nombre</span> </label>
+            <p><input class="fullnamereg" type="text" name="first_name" id="" value="<%=user.first_name%>"></p>
+
+            <label for="last_name" class="surnamereg"><span class="fullnamelabel">Apellido</span> </label>
+            <p><input class="fullnamereg" type="text" name="last_name" id="" value="<%=user.last_name%>"> </p>
+
+            <label for="email" class="surnamereg"><span class="fullnamelabel">Email</span> </label>
+            <p><input class="fullnamereg" type="email" name="email" id="" value="<%=user.email%>"> </p>
+
+            <label for="password" class="passwordlabel"><span class="passwordreg2">Contraseña</span> </label>
+            <p><input class="passwordreg" type="password" name="password" id="" value="<%=user.password%>"> </p>
+
+            <label for="profile_photo"><span class="fullnamelabel">Foto</span> </label>
             <p><input type="file" name="profile_photo" id=""></p>
             
-            <label for="birthday">Fecha de nacimiento </label>
+            <label for="birthday" class="surnamereg"><span class="fullnamelabel">Fecha de nacimiento</span></label>
             <p><input type="date" name="birthday" id="" value="<%=user.birthday%>"></p>
             <br>
-            <label for="genre">Género </label>
-            <p><input type="text" name="genre" id="" value="<%=user.genre%>"></p>
+            <label for="genre" class="surnamereg"><span class="fullnamelabel">Género</span> </label>
+            <p><input class="fullnamereg" type="text" name="genre" id="" value="<%=user.genre%>"></p>
             <br>
-            <p> <button class="buttonAdd" type="submit">Modificar</button>
+            <p> <button class="submitregbutton" type="submit">Modificar</button>
                     </p>
                 </form>
                 <form action="/user/<%=user.id%>?_method=DELETE" method="POST">
 
-                    <button type="submit" class="buttonDelete">BORRAR</button>
+                    <button type="submit" class="submitregbutton">BORRAR</button>
 
                 </form>
             </section>
             <%- include("partials/footer") %>
+        </div>   
         </body>
 
 </html>

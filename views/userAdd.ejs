@@ -1,57 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Roboto:wght@400;900&display=swap"
+    rel="stylesheet">
 
+    
 <%- include("partials/head")%>
 <%- include("partials/header")%>
+<style>
+    .registerheader{
+        font-size: 50px;
+    }
+
+    .userAddForm{
+        width: 600px;
+        margin-left: 33%;
+    }
+
+    body{
+        text-align: center;
+    }
+
+    .passwordreg2{
+        margin-left: 43%;
+    }
+
+    
+
+</style>
 <body>
-    <h1 class="titleAddUser">Agregar Usuario</h1>
+    <h1 class="registerheader">Agregar Usuario</h1>
     <br>
     <section class="formUserAdd">
         <form action="/user/create" method="post" enctype="multipart/form-data">
-            <label for="first_name">Nombre </label>
-            <p><input type="text" name="first_name" id="" value="<%= locals.old ? old.first_name : '' %>"></p><span></span>
+            <div class="userAddForm">
+            <label for="first_name" class="surnamereg"> <span class="fullnamelabel">Nombre</span></label>
+            <p><input class="fullnamereg" type="text" name="first_name" id="" value="<%= locals.old ? old.first_name : '' %>"></p><span></span>
             <% if (locals.errors && errors.first_name) { %>
                 <div class="validation">
                     <%= errors.first_name.msg %> 
                 </div>
             <% } %>
-            <label for="last_name">Apellido </label>
-            <p><input type="text" name="last_name" id="" value="<%= locals.old ? old.last_name : '' %>"> </p><span></span>
+            <label for="last_name" class="surnamereg"> <span class="fullnamelabel">Apellido</span>  </label>
+            <p><input class="fullnamereg" type="text" name="last_name" id="" value="<%= locals.old ? old.last_name : '' %>"> </p><span></span>
             <% if (locals.errors && errors.last_name) { %>
                 <div class="validation">
                     <%= errors.last_name.msg %> 
                 </div>
             <% } %>
-            <label for="email">Email </label>
-            <p><input type="email" name="email" id="" value="<%= locals.old ? old.email : '' %>"> </p><span></span>
+            <label for="email" class="surnamereg"><span class="fullnamelabel">Email</span> </label>
+            <p><input class="fullnamereg" type="email" name="email" id="" value="<%= locals.old ? old.email : '' %>"> </p><span></span>
             <% if (locals.errors && errors.email) { %>
                 <div class="validation">
                     <%= errors.email.msg %> 
                 </div>
             <% } %>
-            <label for="password">Contraseña </label>
-            <p><input type="password" name="password" id=""> </p><span></span>
+            <label for="password" class="passwordlabel"><span class="passwordreg2">Contraseña</span> </label>
+            <p><input class="passwordreg" type="password" name="password" id=""> </p><span></span>
             <% if (locals.errors && errors.password) { %>
                 <div class="validation">
                     <%= errors.password.msg %> 
                 </div>
             <% } %>
-            <label for="profile_photo">Fotos </label>
+            <label for="profile_photo"><span class="fullnamelabel">Imagen</span> </label>
             <p><input type="file" name="profile_photo" id=""></p><span></span>
             <% if (locals.errors && errors.image) { %>
                 <div class="validation">
                     <%= errors.image.msg %> 
                 </div>
             <% } %>
-            <label for="birthday">Fecha de nacimiento </label>
+            <label for="birthday" class="surnamereg"><span class="fullnamelabel" >Fecha de nacimiento</span></label>
             <p><input type="date" name="birthday" id="" value="<%= locals.old ? old.birthday : '' %>"></p><span></span>
             <br>
-            <label for="genre">Género </label>
-            <p><input type="text" name="genre" id="" value="<%= locals.old ? old.genre : '' %>"></p><span></span>
+            <label for="genre" class="surnamereg"><span class="fullnamelabel">Género</span> </label>
+            <p><input class="fullnamereg" type="text" name="genre" id="" value="<%= locals.old ? old.genre : '' %>"></p><span></span>
             <br>
-            <p> <button class="buttonAdd" type="submit">Agregar</button>
+            <p> <button class="submitregbutton" type="submit">Agregar</button>
             
             <a  class="buttonBackProducts" href="/users">Listado de usuarios</a></p>
+        </div>
         </form>
     </section>
     <%- include("partials/footer") %> 
