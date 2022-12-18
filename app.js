@@ -2,6 +2,7 @@ const express = require('express');
 const { get } = require('http');
 const path = require('path');
 const methodOverride = require('method-override');
+const session = require('express-session')
 
 const mainRouter = require("./routes/mainRoute");
 const productsRouter = require('./routes/productsRoute')
@@ -20,6 +21,12 @@ app.use(methodOverride('_method'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Middelware para funciones de session
+app.use(session({
+    secret: "Shh, it's a secret'",
+    resave: false,
+    saveUninitialized: false
+}))
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
