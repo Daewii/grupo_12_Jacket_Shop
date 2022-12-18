@@ -7,27 +7,22 @@ const { validationResult } = require("express-validator");
 
 const controlador = {
     productList: (req, res, next) => {
-        let prmsProducts = db.Product.findAll({ include: ['material', 'color', 'size', 'category'] })
-        let prmsProductImage = db.ProductImage.findAll();
-        Promise.all([prmsProducts, prmsProductImage])
-
-            .then(([products, productImage]) => {
-                res.render('productList', { products, productImage })
+        db.Product.findAll({ include: { all: true } })
+            .then((products) => {
+                res.render('productList', { products })
             })
             .catch(error => res.send(error))
     },
     productDetail: (req, res, next) => {
         let id = req.params.id;
-        let promProduct = db.Product.findByPk(id);
-        let promSizes = db.Size.findAll();
-        let promProductImage = db.ProductImage.findAll({
-            where: {
-                product_id: id
-            }
-        });
-        Promise.all([promProduct, promSizes, promProductImage])
-            .then(([product, sizes, image]) => {
-                res.render('productDetail', { product, sizes, image });
+        db.Product.findByPk(id,
+            {
+                include: {
+                    all: true
+                }
+            })
+            .then((product) => {
+                res.render('productDetail', { product });
             })
             .catch(error => res.send(error))
     },
@@ -46,49 +41,45 @@ const controlador = {
             })
             .catch(error => res.send(error))
     },
-    productCreate: async (req, res, next) => {
+    productCreate: (req, res, next) => {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
-            const product = await db.Product.create({
+            db.Product.create({
                 name: req.body.name,
                 description: req.body.description,
+                image: req.file ? req.file.filename : "default-image.png",
                 category_id: req.body.category_id,
                 material_id: req.body.material_id,
                 color_id: req.body.color_id,
                 size_id: req.body.size_id,
                 price: req.body.price
-                
+
             })
-            const image = await db.ProductImage.create({
-                product_id: product.id,
-                productImage: req.file ? req.file.filename : "default-image.png"
-            })
-            Promise.all([product, image])
-            .then(() => {
-                res.render('index')
-            })
+                .then(() => {
+                    res.render('index')
+                })
         } else {
             let promColors = db.Color.findAll();
             let promMaterials = db.Material.findAll();
             let promSizes = db.Size.findAll();
             let promCategories = db.Category.findAll();
-            
             Promise.all([promColors, promMaterials, promSizes, promCategories])
-            .then(([colors, materials, sizes, categories]) => {
-                res.render('productAdd', { colors, materials, sizes, categories, errors: errors.mapped(), old: req.body })
-            })
-            .catch(error => res.send(error))
+                .then(([colors, materials, sizes, categories]) => {
+                    res.render('productAdd', { colors, materials, sizes, categories, errors: errors.mapped(), old: req.body })
+                })
+                .catch(error => res.send(error))
         }
     },
     productEdit: (req, res, next) => {
         let id = req.params.id;
+        let promProduct = db.Product.findByPk(id, { include: { all: true } })
         let promColors = db.Color.findAll();
         let promMaterials = db.Material.findAll();
         let promSizes = db.Size.findAll();
         let promCategories = db.Category.findAll();
-        let promProduct = db.Product.findByPk(id, { include: ['material', 'color', 'size', 'category'] })
         Promise.all([promProduct, promColors, promMaterials, promSizes, promCategories])
             .then(([product, colors, materials, sizes, categories]) => {
+                console.log(product);
                 res.render('productEdit', { product, colors, materials, sizes, categories })
             })
             .catch(error => res.send(error))
@@ -97,10 +88,11 @@ const controlador = {
         let errors = validationResult(req);
         let productId = req.params.id
         if (errors.isEmpty()) {
-            let productToEdit = await db.Product.update(
+            db.Product.update(
                 {
                     name: req.body.name,
                     description: req.body.description,
+                    image: req.file ? req.file.filename : "default-image.png",
                     category_id: req.body.category_id,
                     material_id: req.body.material_id,
                     color_id: req.body.color_id,
@@ -116,27 +108,27 @@ const controlador = {
                 .catch(error => res.send(error))
         } else {
             let id = req.params.id;
-        let promColors = db.Color.findAll();
-        let promMaterials = db.Material.findAll();
-        let promSizes = db.Size.findAll();
-        let promCategories = db.Category.findAll();
-        let promProduct = db.Product.findByPk(id, { include: ['material', 'color', 'size', 'category'] })
-        Promise.all([promProduct, promColors, promMaterials, promSizes, promCategories])
-            .then(([product, colors, materials, sizes, categories]) => {
-                res.render('productEdit', { product, colors, materials, sizes, categories, errors: errors.mapped(), old: req.body })
-            })
-            .catch(error => res.send(error))
+            let promProduct = db.Product.findByPk(id, { include: { all: true } })
+            let promColors = db.Color.findAll();
+            let promMaterials = db.Material.findAll();
+            let promSizes = db.Size.findAll();
+            let promCategories = db.Category.findAll();
+            Promise.all([promProduct, promColors, promMaterials, promSizes, promCategories])
+                .then(([product, colors, materials, sizes, categories]) => {
+                    res.render('productEdit', { product, colors, materials, sizes, categories, errors: errors.mapped(), old: req.body })
+                })
+                .catch(error => res.send(error))
         }
 
     },
     productDestroy: async (req, res) => {
         let productId = req.params.id;
-        let promImage = await db.ProductImage.destroy({
-            where: { product_id: productId }
+        db.Product.destroy({
+            where: {
+                id: productId
+            }
         })
-        let promProduct = await db.Product.destroy({ where: { id: productId } })
-        Promise.all([promImage, promProduct])
-            .then(([image, product]) => {
+            .then(() => {
                 return res.redirect('/products/list')
             })
             .catch(error => res.send(error))

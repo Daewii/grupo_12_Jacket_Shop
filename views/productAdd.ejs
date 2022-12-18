@@ -38,51 +38,30 @@
         <ul class="errores"></ul>
     <div class="registerform">
         <form class="form" action="/products/create" method="post" id="productsCreateForms" enctype="multipart/form-data">
-<<<<<<< HEAD
-            <label for="name" class="surnamereg"> <span class="fullnamelabel">Nombre</span></label>
-            <div><input class="fullnamereg" type="text" name="name" id="name" value="<%= locals.old ? old.name : '' %>"><span></span></div>
-=======
             <label for="name">Nombre </label>
             <div><input type="text" name="name" id="nombre" value="<%= locals.old ? old.name : '' %>"><span></span></div>
->>>>>>> a5741d630604c561913feaf38507d6f3524af345
             <% if (locals.errors && errors.name) { %>
                 <div class="validation">
                     <%= errors.name.msg %> 
                 </div>
             <% } %>
-<<<<<<< HEAD
-            <label for="description" class="surnamereg"> <span class="fullnamelabel">Descripción</span>  </label>
-            <div><input class="fullnamereg" type="text" name="description" id="description" value="<%= locals.old ? old.description : '' %>"><span></span></div>
-=======
             <label for="description">Descripción </label>
             <div><input type="text" name="description" id="descripción" value="<%= locals.old ? old.description : '' %>"><span></span></div>
->>>>>>> a5741d630604c561913feaf38507d6f3524af345
             <% if (locals.errors && errors.description) { %>
                 <div class="validation">
                     <%= errors.description.msg %> 
                 </div>
             <% } %>
-<<<<<<< HEAD
-            <label for="image"><span class="fullnamelabel" >Foto</span> </label>
-            <div><input type="file" name="image" id="image"><span></span></div>
-=======
             <label for="image">Fotos </label>
             <div><input type="file" name="image" id="imagen"><span></span></div>
->>>>>>> a5741d630604c561913feaf38507d6f3524af345
             <% if (locals.errors && errors.image) { %>
                 <div class="validation">
                     <%= errors.image.msg %> 
                 </div>
             <% } %>
-<<<<<<< HEAD
-            <br><div>
-                <label for="category_id"><span class="fullnamelabel" >Categoría</span> </label>
-            <select class="form-select" aria-label="Elije la categoría" name="category_id">
-=======
             <div>
                 <label for="category_id">Categoría </label>
             <select class="form-select" aria-label="Elije la categoría" name="category_id" id="categoría">
->>>>>>> a5741d630604c561913feaf38507d6f3524af345
                 <option selected disabled>Elige la categoría -</option>
             <% categories.forEach(category => { %>
                 <option value="<%= category.id %>" <%= locals.old && old.category_id == category.id ? 'selected' : ''; %>><%= category.category %></option>
@@ -94,15 +73,9 @@
                 <%= errors.category_id.msg %> 
             </div>
         <% } %>
-<<<<<<< HEAD
-        <br><div>
-            <label for="material_id"><span class="fullnamelabel" >Materiales</span> </label>
-            <select name="material_id">
-=======
         <div>
             <label for="material_id">Materiales </label>
             <select name="material_id" id="material">
->>>>>>> a5741d630604c561913feaf38507d6f3524af345
                 <option selected disabled>Elige el material -</option>
             <% materials.forEach(material => { %>
                 <option value="<%= material.id %>" <%= locals.old && old.material_id == material.id ? 'selected' : ''; %>><%= material.material %></option>
@@ -114,15 +87,9 @@
                 <%= errors.material_id.msg %> 
             </div>
         <% } %>
-<<<<<<< HEAD
-        <br><div>
-            <label for="color_id"><span class="fullnamelabel" >Colores</span> </label>
-            <select name="color_id">
-=======
         <div>
             <label for="color_id">Colores </label>
             <select name="color_id" id="color">
->>>>>>> a5741d630604c561913feaf38507d6f3524af345
                 <option selected disabled>Elige el color -</option>
             <% colors.forEach(color => { %>
                 <option value="<%= color.id %>" <%= locals.old && old.color_id == color.id ? 'selected' : ''; %>><%= color.color %></option>
@@ -134,15 +101,9 @@
                 <%= errors.color_id.msg %> 
             </div>
         <% } %>
-<<<<<<< HEAD
-       <br> <div>
-            <label for="size_id"><span class="fullnamelabel" >Tallas</span> </label>
-            <select name="size_id">
-=======
         <div>
             <label for="size_id">Tallas </label>
             <select name="size_id" id="talla">
->>>>>>> a5741d630604c561913feaf38507d6f3524af345
                 <option selected disabled>Elige la talla -</option>
             <% sizes.forEach(size => { %>
                 <option value="<%= size.id %>" <%= locals.old && old.size_id == size.id ? 'selected' : ''; %>><%= size.size %></option>
@@ -154,13 +115,8 @@
                 <%= errors.size_id.msg %> 
             </div>
         <% } %>
-<<<<<<< HEAD
-            <label class="surnamereg" for="price"><span class="fullnamelabel" >Precio</span></label>
-            <div><input class="fullnamereg" type="number" name="price" id="price" value="<%= locals.old ? old.price : '' %>"><span></span></div>
-=======
             <label for="price">Precio </label>
             <div><input type="number" name="price" id="precio" value="<%= locals.old ? old.price : '' %>"><span></span></div>
->>>>>>> a5741d630604c561913feaf38507d6f3524af345
             <% if (locals.errors && errors.price) { %>
                 <div class="validation">
                     <%= errors.price.msg %> 
