@@ -17,7 +17,7 @@ const productsAPIController = {
                 id: product.id,
                 name: product.name,
                 description: product.description,
-                image: product.productImages[0].productImage,
+                image: product.image,
                 category: product.category.category,
                 detail: `http://localhost:3000/api/products/detail/${product.id}`
             }
@@ -73,13 +73,11 @@ const productsAPIController = {
                         "id": productDetail.id,
                         "name": productDetail.name,
                         "description": productDetail.description,
-                        "images": {
-                            "image1": productDetail.productImages[0].productImage,
-                        },
+                        "image": productDetail,
                         "category": productDetail.category.category,
                         "price": productDetail.price,
                         "color": productDetail.color.Color,
-                        "url_image": `http://localhost:3000/api/products/image/${productDetail.productImages[0].id}`,
+                        "url_image": `http://localhost:3000/api/products/image/${productDetail.id}`,
                     }
                 }
 
@@ -88,9 +86,9 @@ const productsAPIController = {
     },
     'imageDetail': (req, res) => {
         let id = req.params.id
-        db.ProductImage.findByPk(id)
-            .then((image) => {
-                res.render("imageView", { image })
+        db.Product.findByPk(id)
+            .then((product) => {
+                res.render("imageView", { product })
             })
     }
 }

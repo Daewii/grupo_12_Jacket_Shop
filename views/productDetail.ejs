@@ -5,40 +5,25 @@
 <%- include("partials/header")%>
 <body>
     <div class="product">
-        <div class="product-small-img">
-            <% image.forEach(image => {%>
-                <img src="/images/products/<%= image.productImage %>" onclick="myFunction(this)">
-                <img src="/images/products/<%= image.productImage %>" onclick="myFunction(this)">
-                <img src="/images/products/<%= image.productImage %>" onclick="myFunction(this)">
-                <img src="/images/products/<%= image.productImage %>" onclick="myFunction(this)">
-            <% }) %>
-
-        </div>
-
-        <div class="container-full-img">
-
-            <% image.forEach(image => {%>
-                 <img src="/images/products/<%= image.productImage %>" >
-                 <% }) %>
-            
-        </div>
-
         <div class="productDescription">
-            <p>Inicio/Productos/Chaquetas</p>
+            <p>Inicio>Productos>Chaquetas</p>
+            <div>
+                <img src="/images/products/<%= product.image %>">
+            </div>
             <h1><%= product.name %></h1>
             <h4><%= product.price %>  COP</h4>
                 <select name="size_id">
                     <option selected disabled>Seleccione Talla -</option>
-                <% sizes.forEach(size => { %>
-                    <option value="<%= size.id %>"><%= size.size %></option>
-                <% }) %>
+                    <option value="<%= product.size.id %>"><%= product.size.size %></option>
                 </select>
             <input type="number" value="1">
             <button class="btnComprar">Comprar</button>
 
             <h3>Detalle del producto</h3>
             <p><%= product.description %> </p>
-            <%//if(locals.userLogged && locals.userLogged.rol === 1) {%>        
+            <h3>Material</h3>
+            <p><%= product.material.material %> </p>
+            <%//if(locals.userLogged && locals.userLogged.rol === ) {%>        
                 <div class="buttons">        
                     <form action="/products/edit/<%= product.id %> " method="get">
                         <button type="submit" name="edit" value="Editar producto">Editar</button> 

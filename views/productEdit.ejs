@@ -29,7 +29,7 @@
             <br>
             <section class="formProductAdd">
                 <div class="productEditForm">
-                <form action="/products/<%=product.id%>?_method=PUT" method="post">
+                <form action="/products/<%=product.id%>?_method=PUT" method="post" enctype="multipart/form-data">
 
                     <label for="name" class="surnamereg"><span class="fullnamelabel">Nombre</span></label>
                     <p><input class="fullnamereg" type="text" name="name" id="" value="<%=product.name%>"><span></span></p>
@@ -53,7 +53,14 @@
                                 <%= errors.price.msg %> 
                             </div>
                         <% } %>
+                        <label for="image">Fotos </label>
+                     <div><input type="file" name="image" id="imagen"><span></span></div>
                     <div>
+                        <% if (locals.errors && errors.image) { %>
+                            <div class="validation">
+                                <%= errors.image.msg %> 
+                            </div>
+                        <% } %>
                         <label for="category_id"><span class="fullnamelabel">Categoría </span></label>
                     <select name="category_id">
                         <option selected disabled><span class="fullnamelabel">Categoría</span> -</option>
