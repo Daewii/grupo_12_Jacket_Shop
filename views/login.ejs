@@ -19,14 +19,19 @@
                 <h2 class="fw-bold text-center py-5">Bienvenido a Jacket Shop</h2>
 
                 <!--Login-->
-                <form action="#">
+                <form action="/user/login" method="post">
                     <div class="mb-4">
                         <label for="email" class="form-label">Correo electrónico</label><br>
                         <input type="email" class="form-cotrol" name="email">
+                        <% if (locals.errors && errors.email) { %>
+                            <div class="text-danger">
+                                <%= errors.email.msg %> 
+                            </div>
+                        <% } %>
                     </div>
                     <div class="mb-4">
                         <label for="password" class="form-label">Contraseña</label><br>
-                        <input type="password" class="form-cotrol" name="email">
+                        <input type="password" class="form-cotrol" name="contrasena">
                     </div>
                     <div class="mb-4 form-check form-switch">
                         <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
@@ -34,7 +39,7 @@
                       </div>
 
                     <div class="d-grid">
-                        <button type="button" class="btn btn-primary btn-lg">Iniciar Sesión</button>
+                        <button type="submit" class="btn btn-primary btn-lg">Iniciar Sesión</button>
                     </div>
 
                     <div class="my-3">

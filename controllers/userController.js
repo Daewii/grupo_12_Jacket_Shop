@@ -6,11 +6,13 @@ const sequelize = db.sequelize;
 const bcrypt = require ('bcryptjs');
 const { validationResult } = require("express-validator");
 
+
 const controlador = {
     indexUsers: (req,res)=>{
         res.render('users')
     },
     login: (req, res, next) => {
+        
         res.render('login');
     },
     processLogin:(req,res)=>{
@@ -18,15 +20,25 @@ const controlador = {
             where: { email: req.body.email }
         })
         .then((userToLog)=>{
-            if(bcrypt.compareSync(req.body.contrasena, userToLog.password)){
-                res.render('index')
-            }
-            if(req.body.Remember-session){
-                res.cookie('userEmail', req.body.email, {maxAge: (1000 * 60) * 3600});
-            }
+           let userLogged = req.session.userLogged = userToLog
+            console.log(userLogged);
+            res.render('index')
+
+            /*if(userToLog.email == null){
+                return res.render('register',{
+                    errors:{
+                        email:{
+                            msg:'Email no registrado.'
+                        }
+                    }
+                })
+            }*/
+
+            
         })
     },
     register: (req, res, next) => {
+        console.log(req.session.userLogged);
         res.render('register');
     },
     list:(req,res) =>{
