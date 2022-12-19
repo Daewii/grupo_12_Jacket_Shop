@@ -25,10 +25,36 @@
     }
 
     .productContainer .infoContainer{
-        margin-top: 10%;
+        margin-top: 8%;
+    }
+
+    .submitregbutton{
+        background-color: #0B5ED7;
+        color: #FFF;
+    }
+
+    .description{
+        
+        color: darkgrey;
+    }
+
+    .form-select{
+        width: 170px;
+    }
+
+    .col-md-3{
+        margin-top: 5px;
+        width: 70px;
+        height: 40px;
+        margin-bottom: 15px;
+    }
+
+    .name{
+        font-size: 35px;
     }
 </style>
 <body>
+ 
     <div class="productContainer">
         
             
@@ -36,33 +62,38 @@
                 <img src="/images/products/<%= product.image %>">
             </div>
             <div class="infoContainer">
-            <h1 class="registerheader"><%= product.name %></h1>
-            <h3 class="registerheader">Detalle del producto</h3>
-            <p><%= product.description %> </p>
-            <h4><%= product.price %>  COP</h4>
-                <select name="size_id">
-                    <option selected disabled>Seleccione Talla -</option>
-                    <option value="<%= product.size.id %>"><%= product.size.size %></option>
-                </select>
-            <input type="number" value="1">
-            <button class="btnComprar">Comprar</button>
-
-            <h3 class="registerheader">Material</h3>
-            <p><%= product.material.material %> </p>
-            <%//if(locals.userLogged && locals.userLogged.rol === ) {%>        
-                <div class="buttons">        
+            <h1 class="registerheader name"><%= product.name %></h1>
+            <h4 class="registerheader">$<%= product.price %>  COP</h4>
+            <select class="form-select" name="size_id">
+                <option selected disabled>Seleccione Talla -</option>
+                <option value="<%= product.size.id %>"><%= product.size.size %></option>
+            </select>
+            <input class="col-md-3" type="number" value="1">
+            
+            <!--<h3 class="registerheader">Material</h3>
+                <p><%= product.material.material %> </p>-->
+                <h3 class="registerheader">Descripción del producto:</h3>
+                <p class="description"><%= product.description %> </p>
+                <%//if(locals.userLogged && locals.userLogged.rol === ) {%>        
+                    <div class="buttons">        
+                    <button class="submitregbutton">Comprar</button>
                     <form action="/products/edit/<%= product.id %> " method="get">
                         <button class="submitregbutton"  type="submit" name="edit" value="Editar producto">Editar</button> 
 
                     </form>
                     
                     <form action="/products/<%=product.id%>?_method=DELETE" method="POST">
-                        <button type="submit" name="delete" value="Eliminar producto">Eliminar</button>
+                        <button class="submitregbutton" type="submit" name="delete" value="Eliminar producto">Eliminar</button>
                     </form>
                 </div>
             <%// }%>
         </div>
     </div>
+
+   
+
+    
+
 </body>
 <%- include("partials/footer") %> 
 
