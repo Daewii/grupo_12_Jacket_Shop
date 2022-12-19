@@ -13,6 +13,20 @@ const controlador = {
             })
             .catch(error => res.send(error))
     },
+    productListJacket: (req, res, next) => {
+        db.Product.findAll({ include: { all: true } })
+            .then((products) => {
+                res.render('productListJacket', { products })
+            })
+            .catch(error => res.send(error))
+    },
+    productListHoodie: (req, res, next) => {
+        db.Product.findAll({ include: { all: true } })
+            .then((products) => {
+                res.render('productListHoodie', { products })
+            })
+            .catch(error => res.send(error))
+    },
     productDetail: (req, res, next) => {
         let id = req.params.id;
         db.Product.findByPk(id,

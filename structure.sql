@@ -3,12 +3,10 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-11-2022 a las 02:33:33
+-- Tiempo de generación: 18-12-2022 a las 03:04:14
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
-CREATE DATABASE jacket_shop_db;
-Use jacket_shop_db;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -22,7 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `jacket_shop_db`
 --
-
+create database jacket_shop_db;
+use jacket_shop_db;
 -- --------------------------------------------------------
 
 --
@@ -89,18 +88,6 @@ INSERT INTO `materials` (`id`, `material`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `productimages`
---
-
-CREATE TABLE `productimages` (
-  `id` int(11) NOT NULL,
-  `productImage` varchar(50) DEFAULT NULL,
-  `product_id` int(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `products`
 --
 
@@ -108,6 +95,7 @@ CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `name` varchar(50) DEFAULT NULL,
   `description` varchar(200) DEFAULT NULL,
+  `image` varchar(200) DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
   `material_id` int(11) DEFAULT NULL,
   `color_id` int(11) DEFAULT NULL,
@@ -118,34 +106,16 @@ CREATE TABLE `products` (
 --
 -- Volcado de datos para la tabla `products`
 --
-
-INSERT INTO `products` (`id`, `name`, `description`, `price`, `material_id`, `color_id`, `size_id`, `category_id`) VALUES
-(1, 'Chaqueta de jean', 'Chaqueta de Jean para hombre y dama', 250000, 1, 2, 3, 1),
-(2, 'Chaqueta de cuero', 'Chaqueta de cuero para hombre y dama', 500000, 2, 3, 3, 1),
-(3, 'Chaqueta de jean - cuero', 'Chaqueta de cujean - cuero para hombre y dama', 400000, 3, 1, 3, 1),
-(4, 'Chaqueta impermeable', 'Chaqueta impermeable para hombre y dama', 150000, 4, 1, 4, 1),
-(5, 'Chaqueta de corduroy', 'Chaqueta de corduroy para hombre y dama', 350000, 5, 3, 3, 1),
-(6, 'Buzo de algodón', 'Buzo de algodón para hombre y dama', 200000, 6, 1, 4, 2);
-
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `roles`
+-- Estructura de tabla para la tabla `rols`
 --
 
-CREATE TABLE `roles` (
+CREATE TABLE `rols` (
   `id` int(11) NOT NULL,
   `rol` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `roles`
---
-
-INSERT INTO `roles` (`id`, `rol`) VALUES
-(1, 'Admin'),
-(2, 'Usuario');
-
 
 -- --------------------------------------------------------
 
@@ -191,17 +161,6 @@ CREATE TABLE `users` (
 --
 -- Volcado de datos para la tabla `users`
 --
-
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `profile_photo`, `rol_id`, `birthday`, `genre`) VALUES
-(1, 'Manuela', 'Quiroz', 'Manuela.Quiroz@jacketshop.com', 'JacketShop2022*', 'default-image.png', 1, '2000-01-01', 'F'),
-(2, 'Kissy', 'Urrego', 'Kissy.Urrego@jacketshop.com', 'JacketShop2022*', 'default-image.png', 1, '2000-01-01', 'F'),
-(3, 'Diana', 'Pedroza', 'Diana.Pedroza@jacketshop.com', 'JacketShop2022*', 'default-image.png', 1, '2000-01-01', 'F'),
-(4, 'Marcel', 'Piñeros', 'Marcel.Pineros@jacketshop.com', 'JacketShop2022*', 'default-image.png', 1, '2000-01-01', 'M'),
-(5, 'Mateo', 'Duque', 'Mateo.Duque@jacketshop.com', 'JacketShop2022*', 'default-image.png', 1, '2000-01-01', 'M'),
-(6, 'Alejandro', 'García', 'Alejandro.Garcia@jacketshop.com', 'JacketShop2022*', 'default-image.png', 1, '2000-01-01', 'M');
-
--- --------------------------------------------------------
-
 --
 -- Índices para tablas volcadas
 --
@@ -225,13 +184,6 @@ ALTER TABLE `materials`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `productimages`
---
-ALTER TABLE `productimages`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `product_id` (`product_id`);
-
---
 -- Indices de la tabla `products`
 --
 ALTER TABLE `products`
@@ -242,9 +194,9 @@ ALTER TABLE `products`
   ADD KEY `size_id` (`size_id`);
 
 --
--- Indices de la tabla `roles`
+-- Indices de la tabla `rols`
 --
-ALTER TABLE `roles`
+ALTER TABLE `rols`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -283,21 +235,15 @@ ALTER TABLE `materials`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de la tabla `productimages`
---
-ALTER TABLE `productimages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT de la tabla `roles`
+-- AUTO_INCREMENT de la tabla `rols`
 --
-ALTER TABLE `roles`
+ALTER TABLE `rols`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -310,17 +256,11 @@ ALTER TABLE `sizes`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Restricciones para tablas volcadas
 --
-
---
--- Filtros para la tabla `productimages`
---
-ALTER TABLE `productimages`
-  ADD CONSTRAINT `product_id` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
 
 --
 -- Filtros para la tabla `products`
@@ -335,7 +275,7 @@ ALTER TABLE `products`
 -- Filtros para la tabla `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `rol_id` FOREIGN KEY (`rol_id`) REFERENCES `roles` (`id`);
+  ADD CONSTRAINT `rol_id` FOREIGN KEY (`rol_id`) REFERENCES `rols` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

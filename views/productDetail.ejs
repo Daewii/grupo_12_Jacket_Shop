@@ -3,14 +3,42 @@
 <link rel="stylesheet" href="/css/productDetail-Styles.css">
 <%- include("partials/head")%>
 <%- include("partials/header")%>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+
+<style>
+
+    .imgContainer img{
+        width: 500px;
+        height: 700px;
+    }
+
+    .imgContainer{
+        width: 600px;
+    }
+
+    .productContainer{
+      display: flex;
+      margin-top: 5%;
+      margin-left: 3%;
+      margin-bottom: 5%;
+        
+    }
+
+    .productContainer .infoContainer{
+        margin-top: 10%;
+    }
+</style>
 <body>
-    <div class="product">
-        <div class="productDescription">
-            <p>Inicio>Productos>Chaquetas</p>
-            <div>
+    <div class="productContainer">
+        
+            
+            <div class="imgContainer">
                 <img src="/images/products/<%= product.image %>">
             </div>
-            <h1><%= product.name %></h1>
+            <div class="infoContainer">
+            <h1 class="registerheader"><%= product.name %></h1>
+            <h3 class="registerheader">Detalle del producto</h3>
+            <p><%= product.description %> </p>
             <h4><%= product.price %>  COP</h4>
                 <select name="size_id">
                     <option selected disabled>Seleccione Talla -</option>
@@ -19,14 +47,12 @@
             <input type="number" value="1">
             <button class="btnComprar">Comprar</button>
 
-            <h3>Detalle del producto</h3>
-            <p><%= product.description %> </p>
-            <h3>Material</h3>
+            <h3 class="registerheader">Material</h3>
             <p><%= product.material.material %> </p>
             <%//if(locals.userLogged && locals.userLogged.rol === ) {%>        
                 <div class="buttons">        
                     <form action="/products/edit/<%= product.id %> " method="get">
-                        <button type="submit" name="edit" value="Editar producto">Editar</button> 
+                        <button class="submitregbutton"  type="submit" name="edit" value="Editar producto">Editar</button> 
 
                     </form>
                     
@@ -37,12 +63,6 @@
             <%// }%>
         </div>
     </div>
-    <script>
-        function myFunction(smallImg){
-            var fullImg= document.getElementById("imgContainerBox");
-            fullImg.src = smallImg.src;
-        }
-        </script>
 </body>
 <%- include("partials/footer") %> 
 

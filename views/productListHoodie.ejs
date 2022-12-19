@@ -57,29 +57,37 @@
     <main>
         <section>
             <h1 class="title-products">Página de todos los productos</h1>
+                
             <% products.forEach(product => { %>
-        <div class="cardContainer">
+            <% if (product.category.category == "Buso") { %>
+            <div class="cardContainer">
+                
                 <article class="products">
-            <div class="card" style="width: 18rem;">
-                                <a href="detail/<%=product.id %>">
+
+                    <div class="card" style="width: 18rem;">
+                        <a href="detail/<%=product.id %>">
+
                             <div class="product-image">
                                 <img class="card-img-top" src="/images/products/<%= product.image %>" alt="...">
                             </div>
+
                             <div class="card-body">
                                 <h4 class="card-title"><%= product.name  %></h4>
                                 <p class="card-description"><%= product.description %></p>
+
                                 <div class="info">
                                     <p class="card-text">$<%= product.price %> COP.</p>
                                     <a href="detail/<%=product.id %>" class="btn btn-primary">Comprar</a>
                                 </div>
                             </div>
-                </article>
-                
-                </a> 
-                    <% }) %> 
-                
+
+                        </a> 
+                    </div>
+                </article>  
+            <% } %>
+            <% }) %>    
             </div>
-        </div>
+            </div>
         </section>
     </main>
     <%- include("partials/footer") %> 

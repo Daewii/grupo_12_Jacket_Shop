@@ -27,5 +27,7 @@ router.get('/edit/:id', productsController.productEdit);
 router.put('/:id', upload.single('image'), validationProductEdit, productsController.productUpdate);
 router.delete('/:id', productsController.productDestroy);
 router.get('/list', productsController.productList);
+router.get('/listJacket', productsController.productListJacket);
+router.get('/listHoodie', productsController.productListHoodie);
 
 module.exports = router;
