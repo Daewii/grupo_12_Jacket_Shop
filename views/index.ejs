@@ -4,6 +4,60 @@
 <%- include("partials/head")%>
 <%- include("partials/header")%>
 
+<style>
+    .row.featurette{
+        display: flex;
+        text-align: center;
+        margin-top: 0px;
+    }
+
+    .row{
+        text-align: center;
+        margin-left: 7px;
+        justify-content: center;
+        margin-top: 50px;
+    }
+
+    .row .col-lg-4{
+        width: 300px;
+    }
+
+    .row.featurette .col-md-7.order-md-2{
+        margin-top: 10%;
+        width: 600px;
+        text-align: center;
+        margin-left: 150px;
+    }
+
+    .row.featurette .col-md-7{
+        margin-top: 10%;
+        width: 600px;
+        text-align: center;
+        margin-left: 7%;
+        margin-right: 10%;
+        
+    }
+
+    .col-md-5{
+        width: 500px;
+        margin-left: 7%;
+        
+        
+    }
+
+    .developerImage img{
+        border-radius: 25%;
+        width: 200px;
+        height: 200px;
+    }
+
+    .featurette-divider{
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    
+</style>
 
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
@@ -48,25 +102,27 @@
         
 
     <div class="row featurette">
-      <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
-        <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
-      </div>
-      <div class="col-md-5 order-md-1">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
 
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading fw-normal lh-1">Chaquetas para <span class="text-muted">Mujer</span></h2>
+        <p class="lead">Ven y explora todos nuestros diseños. Elige el que más te guste!!   </p>
       </div>
+
+      <div class="col-md-5 order-md-1">
+        <img src="/images/Tarjeta-Mujeres.png" alt="Chaquetas mujeres">
+      </div>
+
     </div>
+
     </section>
     <hr class="featurette-divider">
-    <h1 class="titleSection">Encuentra tu estilo favorito</h1>
     <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading fw-normal lh-1">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
-          <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+          <h2 class="featurette-heading fw-normal lh-1">Chaquetas para <span class="text-muted">hombre</span></h2>
+          <p class="lead">Ven y explora todos nuestros diseños. Elige el que más te guste!!</p>
         </div>
         <div class="col-md-5">
-          <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+          <img src="/images/Tarjeta-Hombres.png" alt="Chaquetas hombres">
   
         </div>
       </div>
@@ -221,53 +277,65 @@
     </section>-->
     <hr class="featurette-divider">
     
-    <h3 text-align="center">Equipo de desarrolladores</h3>
+    
     <div class="row">
+
         <div class="col-lg-4">
-          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-  
+            <div class="developerImage">
+                <img src="/images/Manuela Quiroz.jpeg" alt="Kissy Urrego"> 
+            </div>
           <h2 class="fw-normal">Manuela Quiroz</h2>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non suscipit, corporis delectus eos exercitationem</p>
-          <p><a class="btn btn-secondary" href="#">LinkedIn &raquo;</a></p>
+          <p>Desarrolladora web full stack.</p>
+          <p><a class="btn btn-secondary" href="https://www.linkedin.com/in/manuela-quiroz-castro-06235321a">LinkedIn &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
+
         <div class="col-lg-4">
-          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+            <div class="developerImage">
+                <img src="/images/Kissy Urrego.jpg" alt="Kissy Urrego"> 
+            </div>
   
           <h2 class="fw-normal">Kissy Urrego</h2>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non suscipit, corporis delectus eos exercitationem</p>
-          <p><a class="btn btn-secondary" href="#"View> LinkedIn &raquo;</a></p>
+          <p>Desarrolladora web full stack.</p>
+          <p><a class="btn btn-secondary" href="www.linkedin.com/in/kissyurrego/"View> LinkedIn &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+            <div class="developerImage">
+                <img src="/images/Diana Pedroza.jpg" alt="Diana Pedroza"> 
+            </div>
   
           <h2 class="fw-normal">Diana Pedroza</h2>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non suscipit, corporis delectus eos exercitationem</p>
-          <p><a class="btn btn-secondary" href="#">LinkedIn &raquo;</a></p>
+          <p>Desarrolladora web full stack.</p>
+          <p><a class="btn btn-secondary" href="https://www.linkedin.com/in/dianampedroza/">LinkedIn &raquo;</a></p>
         </div>
         <div class="col-lg-4">
-            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+            <div class="developerImage">
+                <img src="/images/Marcel Pineros.jpg" alt="Marcel Piñeros"> 
+            </div>
     
             <h2 class="fw-normal">Marcel Piñeros</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non suscipit, corporis delectus eos exercitationem</p>
-            <p><a class="btn btn-secondary" href="#">LinkedIn &raquo;</a></p>
+            <p>Desarrollador web full stack.</p>
+            <p><a class="btn btn-secondary" href="https://www.linkedin.com/in/marcel-pi%C3%B1eros-1038ba70">LinkedIn &raquo;</a></p>
           </div>
           <div class="col-lg-4">
-            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-    
+            <div class="developerImage">
+                <img src="/images/Mateo_Duque.jpg" alt="Mateo duque"> 
+            </div>
             <h2 class="fw-normal">Mateo Duque</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non suscipit, corporis delectus eos exercitationem</p>
-            <p><a class="btn btn-secondary" href="#">LinkedIn &raquo;</a></p>
+            <p>Desarrollador web full stack.</p>
+            <p><a class="btn btn-secondary" href="https://www.linkedin.com/in/mateo-duque-b73330199/">LinkedIn &raquo;</a></p>
           </div>
           <div class="col-lg-4">
-            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+            <div class="developerImage">
+                <img src="/images/Alejandro Garcia.jpeg" alt="Alejandro Garcia"> 
+            </div>
     
             <h2 class="fw-normal">Alejandro García</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non suscipit, corporis delectus eos exercitationem</p>
-            <p><a class="btn btn-secondary" href="#">LinkedIn &raquo;</a></p>
+            <p>Desarrollador web full stack.</p>
+            <p><a class="btn btn-secondary" href="https://www.linkedin.com/in/alejandro-garcia-gallego/">LinkedIn &raquo;</a></p>
           </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
 
     
 </body>
-
+<%- include("partials/footer") %> 
 </html>
