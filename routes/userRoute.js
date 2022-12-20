@@ -5,6 +5,7 @@ const path = require('path');
 const userController = require('../controllers/userController.js');
 const validationUserCreateMiddleware = require('../middlewares/validationUserCreateMiddleware')
 const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware')
+const guestMiddleware = require ('../middlewares/guestMiddleware')
 
 var multerStorage = multer.diskStorage({
     destination: (req, file, cb) => {

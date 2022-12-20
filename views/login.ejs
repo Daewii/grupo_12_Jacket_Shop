@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Roboto:wght@400;900&display=swap"
+    rel="stylesheet">
 <%- include("partials/head")%>
     <%- include("partials/header")%>
 
@@ -10,19 +11,38 @@
             background-position: center center;
             display: block;
         }
+
+        .container form .mb-4{
+            width: 600px;
+        }
+
+        .container .d-grid{
+            width: 200px;
+        }
+
+        .container form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+       
+
     </style>
 <body>
     
     <div class="container">
         
             <div class="col text-center">
-                <h2 class="fw-bold text-center py-5">Bienvenido a Jacket Shop</h2>
+                <h2 class="fw-bold text-center py-5 registerheader">Bienvenido a Jacket Shop</h2>
 
                 <!--Login-->
                 <form action="/user/login" method="post">
                     <div class="mb-4">
-                        <label for="email" class="form-label">Correo electrónico</label><br>
-                        <input type="email" class="form-cotrol" name="email">
+                        <label for="email" class="surnamereg"><span class="fullnamelabel">Correo electrónico</span></label><br>
+                        <input aria-invalid="false" id="first_name" name="first_name" type="text" maxleght="64"
+                                    class="fullnamereg" id="first_name">
                         <% if (locals.errors && errors.email) { %>
                             <div class="text-danger">
                                 <%= errors.email.msg %> 
@@ -30,8 +50,8 @@
                         <% } %>
                     </div>
                     <div class="mb-4">
-                        <label for="password" class="form-label">Contraseña</label><br>
-                        <input type="password" class="form-cotrol" name="contrasena">
+                        <label for="password" class="surnamereg"><span class="fullnamelabel">Contraseña</span></label>
+                        <input aria-invalid="false" id="password" name="password" type="password" minleght="7" maxleght="64" class="passwordreg" id="password">
                     </div>
                     <div class="mb-4 form-check form-switch">
                         <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">

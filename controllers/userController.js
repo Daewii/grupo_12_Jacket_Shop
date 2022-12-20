@@ -16,12 +16,12 @@ const controlador = {
         res.render('login');
     },
     processLogin:(req,res)=>{
-        db.User.findOne({
+        /*db.User.findOne({
             where: { email: req.body.email }
         })
         .then((userToLog)=>{
            let userLogged = req.session.userLogged = userToLog
-            console.log(userLogged);
+            console.log(userLogged);*/
             res.render('index')
 
             /*if(userToLog.email == null){
@@ -35,7 +35,7 @@ const controlador = {
             }*/
 
             
-        })
+        //})
     },
     register: (req, res, next) => {
         console.log(req.session.userLogged);
