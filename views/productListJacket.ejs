@@ -58,9 +58,9 @@
         <section>
             <h1 class="title-products">Página de todos los productos</h1>
                 
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             <% products.forEach(product => { %>
             <% if (product.category.category == "Chaqueta") { %>
-            <div class="cardContainer">
 
                 <article class="products">
 
@@ -87,7 +87,7 @@
             <% } %>
             <% }) %>    
             </div>
-            </div>
+            
         </section>
     </main>
     <%- include("partials/footer") %> 
