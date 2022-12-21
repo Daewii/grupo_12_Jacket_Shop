@@ -1,16 +1,18 @@
 function userLoggedMiddleware (req, res, next){
   res.locals.isAnUserLogged = false;
 
-  console.log('se ejecuta el middleware userlogged sin session')
-  console.log(req.session.userLogged)
+  //console.log('se ejecuta el middleware userlogged sin session')
+  console.log(req.userLogged, req.session.userLogged)
   if(req.session.userLogged != undefined){
       res.locals.isAnUserLogged = true;
       res.locals.userLogged = req.session.userLogged;
-      console.log('sesion is logged')
+     // console.log('sesion is logged')
 
      
+  } else{
+    res.redirect('/user/login')
   }
-  console.log (res.locals.userLogged);
+  //console.log (res.locals.userLogged);
   next ();
 
 }

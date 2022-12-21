@@ -1,32 +1,32 @@
-
 <header>
-    
-    
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <div class="container-fluid">
-        <!-- icono o nombre -->
 
-        <a class="navbar-brand" href="/">
-          <img src="\images\Jacket Shop-logo-white.png">
-        </a>
-            
-        <!-- boton del menu -->
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid">
+      <!-- icono o nombre -->
 
-          <!-- elementos del menu colapsable -->
+      <a class="navbar-brand" href="/">
+        <img src="\images\Jacket Shop-logo-white.png">
+      </a>
 
-        <div class="collapse navbar-collapse" id="menu">
-          <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/products/list">Productos</a>
-            </li>
-            <!--<li class="nav-item dropdown">
+      <!-- boton del menu -->
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- elementos del menu colapsable -->
+
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/products/list">Productos</a>
+          </li>
+          <!--<li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Servicios
               </a>
@@ -36,54 +36,65 @@
                 <li><a class="dropdown-item" href="#">Networking</a></li>
               </ul>
             </li>-->
-          </ul>
-
-          
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light" type="submit">Search</button>
-          </form>
-          <hr class="d-md-none text-white-50">
-           <!-- enlaces redes sociales -->
-
-          <ul class="navbar-nav  flex-row flex-wrap text-light">
-
-           <a href="/user/login"><li class="nav-item col-6 col-md-auto p-3">
-            <i class="bi bi-person"></i>
-                <small class="d-md-none ms-2">Ingresa</small>  
-            </li></a>
-
-            <li class="nav-item col-6 col-md-auto p-3">
-                <i class="bi bi-basket"></i>
-              <small class="d-md-none ms-2">Carrito</small> 
-            </li>
-
-            <li class="nav-item col-6 col-md-auto p-3">
-              <i class="bi bi-whatsapp"></i>
-              <small class="d-md-none ms-2">WhatsApp</small>
-            </li>
-
-            <a href="https://github.com/Daewii/grupo_12_Jacket_Shop"><li class="nav-item col-6 col-md-auto p-3">
-                <i class="bi bi-github"></i>
-                <small class="d-md-none ms-2">GitHub</small> 
-              </li></a>
-
-          </ul>
-          
-         <!--boton Informacion -->
-
-          <form class="d-flex">
-            <button class="btn btn-outline-light d-none d-md-inline-block " type="submit">Informacion</button>
-          </form>
-          
-          
-        </div>
-     
-        </div>  
-      </nav>
+        </ul>
 
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-light" type="submit">Search</button>
+        </form>
+        <hr class="d-md-none text-white-50">
+        <!-- enlaces redes sociales -->
+
+        <ul class="navbar-nav  flex-row flex-wrap text-light">
+
+
+          <%if (isAnUserLogged) { %>
+            <a href="/user/profile"> Hola <%=userLogged.first_name %></a>
+              <% } else { %>
+                <a href="/user/login">
+                  <li class="nav-item col-6 col-md-auto p-3">
+                    <i class="bi bi-person"></i>
+                    <small class="d-md-none ms-2">Ingresa</small>
+                  </li>
+                </a>
+                <% } %>
+
+                  <li class="nav-item col-6 col-md-auto p-3">
+                    <i class="bi bi-basket"></i>
+                    <small class="d-md-none ms-2">Carrito</small>
+                  </li>
+
+                  <li class="nav-item col-6 col-md-auto p-3">
+                    <i class="bi bi-whatsapp"></i>
+                    <small class="d-md-none ms-2">WhatsApp</small>
+                  </li>
+
+                  <a href="https://github.com/Daewii/grupo_12_Jacket_Shop">
+                    <li class="nav-item col-6 col-md-auto p-3">
+                      <i class="bi bi-github"></i>
+                      <small class="d-md-none ms-2">GitHub</small>
+                    </li>
+                  </a>
+
+        </ul>
+
+        <!--boton Informacion -->
+
+        <form class="d-flex">
+          <button class="btn btn-outline-light d-none d-md-inline-block " type="submit">Informacion</button>
+        </form>
+
+
+      </div>
+
+    </div>
+  </nav>
+
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
 
 </header>

@@ -19,7 +19,7 @@ var multerStorage = multer.diskStorage({
 var upload = multer({ storage: multerStorage })
 
 /* GET home page. */
-router.get('/login', userController.login);
+router.get('/login',guestMiddleware, userController.login);
 router.post('/logged', userController.processLogin)
 router.post('/login', userController.processLogin);
 router.get('/register', validationUserCreateMiddleware, userController.register);
@@ -29,5 +29,7 @@ router.post('/create', validationUserCreateMiddleware, userController.create);
 router.get('/edit/:id', userController.edit);
 router.put('/:id', userController.update);
 router.delete('/:id', userController.destroy);
+router.get('/profile',userLoggedMiddleware, userController.profile);
+
 
 module.exports = router;
